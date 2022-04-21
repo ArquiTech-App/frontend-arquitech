@@ -1,0 +1,21 @@
+@import "./variables";
+@import "./mixins";
+@import "./base";
+@import "./utilities";
+
+
+
+
+
+// pages
+
+@import "./pages/contacto";
+@import "./pages/home";
+
+
+
+
+//components
+
+@import "./components/card";
+@import "./components/form";

@@ -1,7 +1,55 @@
-section{
-    background-color: #D5D5D5;
-    border-radius: 20px;
-    opacity: 80%;
-    width: 50%;
-    height: 70vh;
+.input-login{
+    background-color: #d5d5d5cd;
+    border-radius: 50px;
+    margin-top:50px;
+    backdrop-filter: blur(5px);
+    min-height:400px;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    h3{
+        font-weight: bold;
+        margin-top: 50px;
+    }
+    .form-login{ 
+        
+        
+        padding: 10%;
+        text-align: start;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:space-between;
+        label{
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            input{
+                height: 35px;
+                
+                border: solid 0.5px gray;
+                border-radius: 10px;
+            }
+    
+        }
+        .btn-login{
+            width: 70%;
+            height: 34px;
+            border-radius: 7px;
+            border: none;
+            background-color: #1A5D89;
+            color: white;
+            margin-top: 50px;
+            &:hover{
+                background-color: #123e5c;
+            }
+            
+        }
+    }
+}
+@media (max-width: 768px) {
+    .input-login{
+        width:50vh;
+    }
 }

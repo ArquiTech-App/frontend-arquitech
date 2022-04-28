@@ -1,13 +1,16 @@
-import Head from 'next/head'
-import Image from 'next/image'
 
-export default function Home () {
+import Navigation from '../components/navigations'
+
+const Index = () => {
   return (
     <div>
-      <h1>THE REPORTING APP FOR THE BEST ARCHITECTURE PROJECTS
-      </h1>
+
+      <Navigation />
+      <h1> index </h1>
 
     </div>
 
   )
 }
+
+export default Index

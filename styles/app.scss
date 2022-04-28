@@ -11,11 +11,12 @@
 
 @import "./pages/contacto";
 @import "./pages/home";
+@import "./pages/login";
 
 
 
 
 //components
-
+@import "./components/_loginInput";
 @import "./components/card";
 @import "./components/form";

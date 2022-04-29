@@ -7,6 +7,8 @@ export default function Login(){
 
 
     return(
+        <section className="body-login">
+
         <div className="login-page">
             <div className="login-div">
 
@@ -23,5 +25,6 @@ export default function Login(){
             </div>
             
         </div>
+            </section>
     )
 }

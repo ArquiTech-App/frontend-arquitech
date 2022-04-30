@@ -11,7 +11,7 @@ import settings from '../public/btn-settings.svg'
 import Link from 'next/link';
 
 
-export default function Aside() {
+export default function Aside(props) {
 
 
 

@@ -13,7 +13,7 @@ import Link from 'next/link';
 
 export default function Aside(props) {
 
-
+    
 
   return (
     <aside className='aside-layout'>

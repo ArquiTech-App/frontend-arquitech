@@ -1,3 +1,6 @@
+body{
+    background-color: #EAF1F4;
+}
 @import "./variables";
 @import "./mixins";
 @import "./base";
@@ -20,3 +23,5 @@
 @import "./components/_loginInput";
 @import "./components/card";
 @import "./components/form";
+@import "./components/aside";
+@import "./components/layout";

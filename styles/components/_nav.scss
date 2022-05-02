@@ -1,0 +1,13 @@
+.nav{
+    gap: 50px;
+    font-size: 22px;
+    font-weight: bold;
+    li{
+        cursor: pointer;
+        color: white;
+        &:hover{
+            color: #FFEAB2;
+            
+        }
+    }
+}

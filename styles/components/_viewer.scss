@@ -1,0 +1,12 @@
+.ForgeViewer{
+    position:fixed;
+    width:70% !important;
+    height:90% !important;
+  }
+
+@media (max-width: 768px) {
+    .ForgeViewer{
+
+        width :100% !important;
+    }
+}

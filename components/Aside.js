@@ -13,7 +13,7 @@ import Link from 'next/link';
 
 export default function Aside(props) {
 
-
+    
 
   return (
     <aside className='aside-layout'>
@@ -68,7 +68,7 @@ export default function Aside(props) {
                     Documents
                 </button>
                     </Link>
-                <Link href='/view_3d'>
+                <Link href='/Viewer'>
 
                 <button className="btn-aside">
                     <Image

@@ -1,7 +1,11 @@
 import React from 'react'
+import Layout from '../components/Layout'
 
 export default function settings () {
   return (
-    <div>settings</div>
+    <Layout>
+
+      <div>settings</div>
+    </Layout>
   )
 }

@@ -11,7 +11,7 @@ body{
 
 
 // pages
-
+@import "../styles/pages/index";
 @import "./pages/contacto";
 @import "./pages/home";
 @import "./pages/login";
@@ -25,4 +25,5 @@ body{
 @import "./components/form";
 @import "./components/aside";
 @import "./components/layout";
-@import "./components/viewer"
+@import "./components/viewer";
+@import "./components/nav"

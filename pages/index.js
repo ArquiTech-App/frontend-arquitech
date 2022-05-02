@@ -10,12 +10,12 @@ const Index = () => {
     <div className="container-index">
       <div className="header-index">
         <div>
-          <Image src={fondo} alt="header" />
+          <Image src={fondo} alt="header"/>
         </div>
         <div className="div-header">
           <div className="navigator-index">
             <Navigation />
-            <Image src={logo} alt="logo" />
+            <Image src={logo} alt="logo"/>
           </div>
         </div>
       </div>

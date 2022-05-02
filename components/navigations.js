@@ -6,13 +6,13 @@ const Navigation = () => {
         <ul className="nav">
 
         <Link href='/CreateAccount'>
-          <li>Create Account</li>
+          <li>Crear Cuenta</li>
         </Link>
         <Link href='/Pricing'>
-          <li>Pricing</li>
+          <li>Precios</li>
         </Link>
         <Link href='/LearnAndHelp'>
-          <li>Learning & Help</li>
+          <li>Aprende y Ayuda</li>
         </Link>
         <Link href='/login'>
           <li>Login</li>

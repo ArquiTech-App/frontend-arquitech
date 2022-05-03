@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
+import Router from 'next/router'
 
 
 export default function InputCreateAccount() {
-
+    
+   
     const [office, setOffice] = useState({
         name:'',
         address:'',
@@ -31,10 +33,11 @@ export default function InputCreateAccount() {
             console.log(JSON.stringify(office));
             let res = await fetch('http://localhost:8080/offices/createAccount', options)
             let json = await res.json()
-            console.log(json);
+            if(!res.ok) throw {error: json.error}
+            Router.push('/login')
             
         } catch (error) {
-            console.log(error);
+            console.log(error.error);
         }
     }
 

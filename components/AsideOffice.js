@@ -9,6 +9,7 @@ import view from "../public/btn-view.svg";
 import documents from "../public/btn-document.svg";
 import contracts from "../public/btn-contracts.svg";
 import settings from "../public/btn-settings.svg";
+import clients from "../public/people-team-svgrepo-com.svg"
 
 export default function AsideOffice() {
   return (
@@ -22,6 +23,12 @@ export default function AsideOffice() {
             <button className="btn-aside">
               <Image src={home} alt="logo-home" />
               Home
+            </button>
+          </Link>
+          <Link href="clients">
+            <button className="btn-aside">
+              <Image src={clients} alt="logo-clients" />
+              Clients
             </button>
           </Link>
           <Link href="dashboard">

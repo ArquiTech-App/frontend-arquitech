@@ -38,7 +38,7 @@ export default function LoginInput({setTokenOffice, tokenOffice, setIsLoginOffic
             setTokenOffice(json.data.token)
             setIsLoginOffice(true)
             console.log(tokenOffice);
-            window.localStorage.setItem('token', tokenOffice)
+            window.localStorage.setItem('token', json.data.token)
             Router.push('offices/home')
         } catch (error) {
             console.log(error.error);

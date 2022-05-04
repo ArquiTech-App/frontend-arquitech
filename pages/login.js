@@ -3,12 +3,17 @@ import Image from 'next/image'
 import logo from '../public/logo.svg'
 import React, {useState, useContext} from 'react'
 import OfficeContext from '../context/officeContext'
+import ModalError from '../components/ModalError'
 
 
 export default function Login(){
-
+    const [modalShow, setModalShow] = useState(false);
+  const [errorC, setErrorC] = useState("");
+  const [titleModal, setTitleModal] = useState("");
+  const [messageModal, setMessageModal] = useState("");
+  const [success, setSuccess] = useState(false);
    const {tokenOffice,setTokenOffice,isLoginOffice,setIsLoginOffice} = useContext(OfficeContext);
-    
+   const [pageComing, setPageComing] = useState('login')
 
     return(
         <section className="body-login">
@@ -30,7 +35,32 @@ export default function Login(){
             tokenOffice={tokenOffice}
             setIsLoginOffice={setIsLoginOffice}
             isLoginOffice={isLoginOffice}
+            setModalShow={setModalShow}
+            show={modalShow}
+            errorC={errorC}
+            setErrorC={setErrorC}
+            titleModal={titleModal}
+            setTitleModal={setTitleModal}
+            messageModal={messageModal}
+            setMessageModal={setMessageModal}
+            success={success}
+            setSuccess={setSuccess}
             />
+            <ModalError
+        show={modalShow}
+        onHide={() => {
+          setModalShow(false);
+        }}
+        errorC={errorC}
+        setErrorC={setErrorC}
+        titleModal={titleModal}
+        setTitleModal={setTitleModal}
+        messageModal={messageModal}
+        setMessageModal={setMessageModal}
+        success={success}
+        setSuccess={setSuccess}
+        pageComing={pageComing}
+      />
             </div>
             
         </div>

@@ -10,13 +10,21 @@ export default function ModalError(props) {
             
             props.setErrorC('')
             props.onHide()
-            Router.push('/CreateAccount')
+            if(props.pageComing === 'ceateacount'){
+
+                Router.push('/CreateAccount')
+            } else {
+                Router.push('/login')
+            }
         } else {
             props.setErrorC('')
             props.onHide()
             props.setSuccess(false)
+            if(props.pageComing === 'ceateacount'){
             Router.push('/login')
-
+            } else {
+                Router.push('offices/home')
+            }
         }
     }
   return (

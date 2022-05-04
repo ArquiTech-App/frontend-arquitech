@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
-import ModalError from '../components/ModalError'
+
 
 
 export default function InputCreateAccount({errorC, setErrorC, setModalShow, setMessageModal, setTitleModal, setSuccess }) {

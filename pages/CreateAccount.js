@@ -10,6 +10,7 @@ export default function CreateAccount() {
   const [titleModal, setTitleModal] = useState("");
   const [messageModal, setMessageModal] = useState("");
   const [success, setSuccess] = useState(false);
+  const [pageComing, setPageComing] = useState('ceateacount')
 
   return (
     <section className="body-login">
@@ -45,6 +46,7 @@ export default function CreateAccount() {
         setMessageModal={setMessageModal}
         success={success}
         setSuccess={setSuccess}
+        pageComing={pageComing}
       />
     </section>
   );

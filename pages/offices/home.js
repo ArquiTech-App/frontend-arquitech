@@ -10,11 +10,7 @@ export default function home() {
       <LayoutOffice>
 
           <div className="back-home">
-              <Image 
-              src={backLogo}
-              alt="backlogo"
               
-              />
           </div>
       </LayoutOffice>
   )

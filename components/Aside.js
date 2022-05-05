@@ -27,7 +27,7 @@ export default function Aside(props) {
         </div>
         <div className="menu-aside">
             <div className="buttons-aside">
-                <Link href='/home'>
+                <Link href='home'>
 
                 <button className="btn-aside">
                     <Image
@@ -38,7 +38,7 @@ export default function Aside(props) {
                 </button>
                     </Link>
 
-                <Link href='/dashboard'>
+                <Link href='dashboard'>
 
                 <button className="btn-aside">
                     <Image
@@ -48,7 +48,7 @@ export default function Aside(props) {
                     Dashboard
                 </button>
                     </Link>
-                <Link href='/gantt'>
+                <Link href='gantt'>
 
                 <button className="btn-aside">
                     <Image
@@ -58,7 +58,7 @@ export default function Aside(props) {
                     Gantt
                 </button>
                     </Link>
-                <Link href='/documents'>
+                <Link href='documents'>
 
                 <button className="btn-aside">
                     <Image
@@ -68,7 +68,7 @@ export default function Aside(props) {
                     Documents
                 </button>
                     </Link>
-                <Link href='/Viewer'>
+                <Link href='Viewer'>
 
                 <button className="btn-aside">
                     <Image
@@ -78,7 +78,7 @@ export default function Aside(props) {
                     View 3D
                 </button>
                     </Link>
-                <Link href='/contracts'>
+                <Link href='contracts'>
 
                 <button className="btn-aside">
                     <Image
@@ -88,7 +88,7 @@ export default function Aside(props) {
                     Contracts
                 </button>
                     </Link>
-                <Link href='/settings'>
+                <Link href='settings'>
 
                 <button className="btn-aside">
                     <Image

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ForgeViewer from 'react-forge-viewer';
-import Layout from '../components/Layout'
+import Layout from '../../components/Layout'
 
 
 export default function Viewer(){
@@ -9,7 +9,7 @@ export default function Viewer(){
   useEffect(() => {
     const getTokenAutodesk = async () => {
       
-      let res = await fetch('http://localhost:8080/forge/oauth/public'),
+      let res = await fetch('http://localhost:8080/autodesk/forge/oauth/public'),
       json = await res.json();
       setAccessTokenForge(json)
       

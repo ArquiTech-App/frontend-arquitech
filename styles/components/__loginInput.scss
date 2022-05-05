@@ -31,11 +31,22 @@
             width: 90%;
             input{
                 height: 35px;
-                
+                padding: 10px;
                 border: solid 0.5px gray;
                 border-radius: 10px;
             }
-    
+            p{
+                font-size: 12px;
+                height:25px;
+                display: flex;
+                font-weight: bold;
+                align-items:center;
+                padding-left: 20px;
+                background-color: red;
+                border-radius: 15px;
+                
+                color: white;
+            }
         }
         .btn-login{
             width: 70%;

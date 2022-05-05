@@ -14,7 +14,7 @@ export default function InputCreateAccount({errorC, setErrorC, setModalShow, set
         try {
             let options = {
                 method: 'POST',
-                body: JSON.stringify(data),
+                body: JSON.stringify({...data, bucket: data.email}),
                 headers: { "content-type": "application/json" }
                
             }

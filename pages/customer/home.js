@@ -1,13 +1,14 @@
 import React from 'react'
-import Layout from '../../components/Layout'
+import LayoutCustomers from '../../components/LayoutCustomers'
 import Link from 'next/link'
 
 
 export default function home() {
   return (
-      <Layout>
+      <LayoutCustomers>
         <Link href="/CustomerHome"> Dashboard Client </Link>
           
-      </Layout>
+      </LayoutCustomers>
   )
 }
+

@@ -90,19 +90,20 @@ export default function home() {
  left:110px
  `
 
+
   return (
       <LayoutOffice>
-          <div >
+          <div className="container-home">
             
-
-            <Image
+            <img className="avatar-office" src={avatar} width={150} height={150}/>
+            {/* <Image
             className="avatar-office"
             src={avatar}
             alt='avatar'
             width={150}
             height={150}
             
-            />
+            /> */}
            
             <ImageContainer>
 
@@ -118,13 +119,15 @@ export default function home() {
 
           </div>
           <div className="back-home">
-              <h1>{`Bienvenido ${officeData.name}`}</h1>
+              <h1>Bienvenido  <span className='nombre-office'>{officeData.name}</span></h1>
           </div>
           <ModalAddPhoto
             show={modalShow}
             onHide={() => {
               setModalShow(false);
             }}
+            officeData={officeData}
+            tokenOffice={tokenOffice}
           />
 
       </LayoutOffice>

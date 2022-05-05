@@ -1,12 +1,18 @@
-.avatar-office{
-    border-radius: 50%;
-    position: absolute !important;
-    
-}
-.btn-plus{
-    cursor: pointer;
-    position: relative;
+
+.container-home{
+    overflow-x: hidden;
+    .avatar-office{
+        border-radius: 50%;
+        
+        
+    }
+    .btn-plus{
+        cursor: pointer;
+        position: relative;
+    }
 }
 .back-home{
-    
+    .nombre-office{
+        font-weight: bold;
+    }
 }

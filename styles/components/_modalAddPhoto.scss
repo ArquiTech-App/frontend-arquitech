@@ -1,0 +1,15 @@
+.form-add{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+    
+    .form-enviar{
+        display: flex;
+        justify-content: center;
+        
+        input{
+            width: 50%;
+        }
+    }
+}

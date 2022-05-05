@@ -6,7 +6,7 @@ const OfficeContext = createContext();
 
 
 function OfficeProvider({children}) { 
-    
+    const [officeData, setOfficeData] = useState({})
     const [isLoginOffice, setIsLoginOffice] = useState(false);
     const [tokenOffice, setTokenOffice] = useState('');
 
@@ -17,6 +17,8 @@ function OfficeProvider({children}) {
         setIsLoginOffice,
         tokenOffice,
         setTokenOffice,
+        officeData, 
+        setOfficeData
     }
     
 

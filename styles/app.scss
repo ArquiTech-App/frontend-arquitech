@@ -16,7 +16,8 @@ body{
 @import "./pages/home";
 @import "./pages/login";
 @import "./components/home";
-
+@import "./pages/addClient";
+@import "./pages/restartPassword";
 
 
 //components
@@ -28,3 +29,5 @@ body{
 @import "./components/viewer";
 @import "./components/nav";
 @import "./components/modalAddPhoto";
+@import "./components/cardClientInput";
+@import "./components/cardInputRestartPassword";

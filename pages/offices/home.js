@@ -1,4 +1,4 @@
-import {useEffect, useContext, useState} from 'react';
+import React, {useEffect, useContext, useState} from 'react';
 import LayoutOffice from '../../components/LayoutOffice'
 import Image from 'next/image'
 import avatarDefault from '../../public/abstract-user-flat-4.svg'
@@ -6,6 +6,8 @@ import plus from '../../public/ftadd.svg'
 import OfficeContext from '../../context/officeContext'
 import styled from 'styled-components'
 import ModalAddPhoto from '../../components/ModalAddPhoto'
+import Card from '../../components/CardClientsOffice';
+
 
 export default function home() {
 
@@ -128,6 +130,9 @@ export default function home() {
             }}
             officeData={officeData}
             tokenOffice={tokenOffice}
+          />
+          <Card
+          officeData={officeData}
           />
 
       </LayoutOffice>

@@ -41,7 +41,7 @@ export default function InputCreateAccount({errorC, setErrorC, setModalShow, set
   return (
     <>
         <section className="input-login">
-            <h3>Welcome to Arquitetch</h3>
+            <h3>Bienvenido a Arquitetch</h3>
             <p>Crear cuenta</p>
             <form onSubmit={handleSubmit(createAccount)} className="form-login" id="login">
                 <label>Nombre Compañia:

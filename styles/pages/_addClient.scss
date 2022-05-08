@@ -1,0 +1,29 @@
+
+
+    
+    .create-client{
+        background-color: #323232 ;
+        
+        background-image: url('../../public/8126538656_4bda16c44b_c.jpeg');
+        background-size: 100%;
+        display: flex;
+        flex-direction: row;
+        
+        .container-blank{
+            width: 100%;
+        }
+        .container-cardClient{
+            
+            padding: 25px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap:20px;
+        }
+    }
+    @media (max-width: 768px) {
+        .container-blank{
+            display: none;
+        }
+    }

@@ -3,6 +3,7 @@
     overflow-x: hidden;
     .avatar-office{
         border-radius: 50%;
+        box-shadow: 0 0 8px #939b06;
         
         
     }
@@ -15,4 +16,14 @@
     .nombre-office{
         font-weight: bold;
     }
+}
+.subtitle-home{
+    color: white;
+    padding-left: 25px;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    height: 40px;
+    background: rgb(0,31,62);
+background: linear-gradient(90deg, rgba(0,31,62,1) 0%, rgba(3,87,170,1) 10%, rgba(234,241,244,1) 90%);
 }

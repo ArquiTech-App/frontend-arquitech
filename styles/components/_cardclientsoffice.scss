@@ -1,0 +1,67 @@
+
+.container-card{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; 
+    gap: 25px;
+    padding: 25px;
+    .container-clients{
+        display: flex;
+        justify-content: center;
+        padding: 25px;
+        width: 350px;
+        .client-container-photo{
+            height: 180px;
+            
+            .image{
+                border-radius: 20px;
+            }
+            .avatar{
+                border-radius: 50%;
+            }
+        }
+        }
+        .info-client{
+            display: flex;
+                flex-direction: column;
+            margin-top: 20px;
+            align-items: center;
+            .name-client{
+                color: #001F3E;
+                font-weight: bold;
+            }
+            .cliente-privado{
+                color: #1995E5;
+                font-weight: bold;
+
+            }
+            .projects{
+                color: #304A63;
+                font-weight: bold;
+                font-size: 13px;
+
+            }
+            .btn-ver-mas{
+                background-color: #4998CB;
+                font-size: 13px;
+                width: 100px;
+                border-radius: 5px;
+                color: white;
+                font-weight: bold;
+                border: none;
+                &:hover{
+                    background-color: #205578;
+                }
+            }
+        }
+    }
+    .div-btn{
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        .btn-client{
+            
+            width: 200px;
+        }
+    }

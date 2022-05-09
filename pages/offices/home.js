@@ -12,6 +12,7 @@ import Card from '../../components/CardClientsOffice';
 export default function home() {
 
   const [modalShow, setModalShow] = useState(false);
+  const [photoUser, setPhotoUser] = useState('');
   
  const {tokenOffice,setTokenOffice,isLoginOffice,setIsLoginOffice, officeData, setOfficeData} = useContext(OfficeContext);
  
@@ -46,7 +47,7 @@ export default function home() {
         let res = await fetch(`http://localhost:8080/offices/${id}`, options);
         let json = await res.json()
         let user = json.data.offices;
-        
+        console.log(user);
         setOfficeData(user)
         createFolder(user);
       } catch (error) {
@@ -77,6 +78,7 @@ export default function home() {
  let avatar = ''
  if (!officeData.avatar) {
    avatar = avatarDefault
+   avatar = avatar.src
  } else {
    avatar = officeData.avatar
  }
@@ -98,14 +100,7 @@ export default function home() {
           <div className="container-home">
             
             <img className="avatar-office" src={avatar} width={150} height={150}/>
-            {/* <Image
-            className="avatar-office"
-            src={avatar}
-            alt='avatar'
-            width={150}
-            height={150}
-            
-            /> */}
+           
            
             <ImageContainer>
 
@@ -130,9 +125,13 @@ export default function home() {
             }}
             officeData={officeData}
             tokenOffice={tokenOffice}
+            photoUser={photoUser}
           />
+          <h3 className='subtitle-home'>Clientes...</h3>
           <Card
           officeData={officeData}
+          toClick={toClick}
+          setPhotoUser={setPhotoUser}
           />
 
       </LayoutOffice>

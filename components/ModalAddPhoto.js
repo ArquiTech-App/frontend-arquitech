@@ -5,9 +5,18 @@ import Router from 'next/router'
 
 export default function ModalAddPhoto(props) {
     let token = props.tokenOffice;
-    let id = props.officeData._id
-    
-        
+    let id = props.officeData._id;
+    let userPhoto = props.photoUser;
+    let urls = ''
+    console.log(userPhoto);
+    if(userPhoto[0] === 'client'){
+      console.log('client');
+       urls = `http://localhost:8080/clients/${userPhoto[1]}`
+    } else {
+      console.log('office');
+      urls = `http://localhost:8080/offices/${id}`
+    }
+        console.log(urls);
     async function uploadAvatar(e) {
         e.preventDefault();
         let formData = new FormData()
@@ -36,6 +45,7 @@ export default function ModalAddPhoto(props) {
            console.log(error);
        }
     }
+    
     async function addAvatar(url){
         
         let options = {
@@ -48,13 +58,13 @@ export default function ModalAddPhoto(props) {
         }
         try {
 
-            let res = await fetch(`http://localhost:8080/offices/${id}`, options)
+            let res = await fetch(urls, options)
             let json = await res.json();
 
-            if(!res.ok) throw {error: error.message}
+            if(!res.ok) throw {error: json.message}
             console.log(json);
         } catch (error) {
-            console.log(error);
+            console.log(error.error);
         }
     }
 

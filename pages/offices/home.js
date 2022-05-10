@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import LayoutOffice from '../../components/LayoutOffice'
 import Image from 'next/image'
 import avatarDefault from '../../public/abstract-user-flat-4.svg'
@@ -9,15 +9,17 @@ import ModalAddPhoto from '../../components/ModalAddPhoto'
 import Card from '../../components/CardClientsOffice';
 
 
-export default function home() {
 
+
+function HomeCenter() {
+  
+  
   const [modalShow, setModalShow] = useState(false);
   const [photoUser, setPhotoUser] = useState('');
   
  const {tokenOffice,setTokenOffice,isLoginOffice,setIsLoginOffice, officeData, setOfficeData} = useContext(OfficeContext);
- 
- 
- useEffect(() =>{
+  
+  useEffect(() =>{
    setTokenOffice(
       window.localStorage.getItem('token')
    )
@@ -29,7 +31,7 @@ export default function home() {
 
     try {
       
-      let res = await fetch(`http://localhost:8080/offices/getID/${token}`)
+      let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/offices/getID/${token}`)
       let json = await res.json();
       let idUser = json.data.id;
       getUser(idUser, token)
@@ -44,7 +46,7 @@ export default function home() {
         let options = {
           headers: { 'Authorization': token}
         }
-        let res = await fetch(`http://localhost:8080/offices/${id}`, options);
+        let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/offices/${id}`, options);
         let json = await res.json()
         let user = json.data.offices;
         console.log(user);
@@ -63,7 +65,7 @@ export default function home() {
           },
           body: JSON.stringify({"name": user.bucket})
         }
-        let res = await fetch(`http://localhost:8080/createFolder`,options);
+        let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/createFolder`,options);
         let json = await res.json();
         console.log(json);
         if (!res.ok) throw {error: error} 
@@ -96,7 +98,9 @@ export default function home() {
 
 
   return (
-      <LayoutOffice>
+      
+        <LayoutOffice>
+
           <div className="container-home">
             
             <img className="avatar-office" src={avatar} width={150} height={150}/>
@@ -126,7 +130,7 @@ export default function home() {
             officeData={officeData}
             tokenOffice={tokenOffice}
             photoUser={photoUser}
-          />
+            />
           <h3 className='subtitle-home'>Clientes...</h3>
           <Card
           officeData={officeData}
@@ -134,6 +138,9 @@ export default function home() {
           setPhotoUser={setPhotoUser}
           />
 
-      </LayoutOffice>
+        </LayoutOffice>
+      
   )
 }
+
+export default HomeCenter

@@ -1,11 +1,13 @@
 import React from 'react'
-import Layout from '../../components/Layout'
+import LayoutCustomers from '../../components/LayoutCustomers'
+import Link from 'next/link'
+
 
 export default function home() {
   return (
-      <Layout>
-
-          <h3>hola</h3>
-      </Layout>
+      <LayoutCustomers>
+        <h1>Documents</h1>
+      </LayoutCustomers>
   )
 }
+

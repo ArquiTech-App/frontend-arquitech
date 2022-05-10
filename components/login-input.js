@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 function LoginI({
@@ -38,10 +38,12 @@ function LoginI({
 
       if (!res.ok)
         throw { error: json.error, message: json.message, option: option };
+       
 
+      localStorage.setItem("token", json.data.token);
+    
       setTokenOffice(json.data.token);
       setIsLoginOffice(true);
-      localStorage.setItem("token", json.data.token);
       setTitleModal(`Bienvenido ${data.email}`);
       setMessageModal(json.message);
       setSuccess(true);

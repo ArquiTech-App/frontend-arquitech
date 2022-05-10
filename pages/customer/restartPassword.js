@@ -1,11 +1,11 @@
 import React from 'react'
-import {useRouter} from 'next/router'
+import userouter from 'next/router'
 import Image from 'next/image'
 import logo from '../../public/logo.svg'
 import CardInputRestartPassword from '../../components/CardInputRestartPassword'
 
 export default function restartPassword() {
-  const router = useRouter();
+  const router = userouter();
   const token = router.query
   
   return (

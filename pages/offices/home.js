@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState} from 'react';
+import React from 'react';
 import LayoutOffice from '../../components/LayoutOffice'
 import Image from 'next/image'
 import avatarDefault from '../../public/abstract-user-flat-4.svg'
@@ -11,13 +11,13 @@ import Card from '../../components/CardClientsOffice';
 
 export default function home() {
 
-  const [modalShow, setModalShow] = useState(false);
-  const [photoUser, setPhotoUser] = useState('');
+  const [modalShow, setModalShow] = React.useState(false);
+  const [photoUser, setPhotoUser] = React.useState('');
   
- const {tokenOffice,setTokenOffice,isLoginOffice,setIsLoginOffice, officeData, setOfficeData} = useContext(OfficeContext);
+ const {tokenOffice,setTokenOffice,isLoginOffice,setIsLoginOffice, officeData, setOfficeData} = React.useContext(OfficeContext);
  
  
- useEffect(() =>{
+ React.useEffect(() =>{
    setTokenOffice(
       window.localStorage.getItem('token')
    )

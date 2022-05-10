@@ -4,7 +4,8 @@ import Image from 'next/image'
 import logo from '../../public/logo.svg'
 import CardInputRestartPassword from '../../components/CardInputRestartPassword'
 
-export default function restartPassword() {
+
+function restart() {
   const router = userouter();
   const token = router.query
   
@@ -27,3 +28,5 @@ export default function restartPassword() {
     </div>
   )
 }
+
+export default restart

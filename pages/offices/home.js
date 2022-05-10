@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import LayoutOffice from '../../components/LayoutOffice'
 import Image from 'next/image'
 import avatarDefault from '../../public/abstract-user-flat-4.svg'
@@ -9,15 +9,17 @@ import ModalAddPhoto from '../../components/ModalAddPhoto'
 import Card from '../../components/CardClientsOffice';
 
 
-export default function home() {
 
-  const [modalShow, setModalShow] = React.useState(false);
-  const [photoUser, setPhotoUser] = React.useState('');
+
+function HomeCenter() {
   
- const {tokenOffice,setTokenOffice,isLoginOffice,setIsLoginOffice, officeData, setOfficeData} = React.useContext(OfficeContext);
- 
- 
- React.useEffect(() =>{
+  
+  const [modalShow, setModalShow] = useState(false);
+  const [photoUser, setPhotoUser] = useState('');
+  
+ const {tokenOffice,setTokenOffice,isLoginOffice,setIsLoginOffice, officeData, setOfficeData} = useContext(OfficeContext);
+  
+  useEffect(() =>{
    setTokenOffice(
       window.localStorage.getItem('token')
    )
@@ -96,7 +98,9 @@ export default function home() {
 
 
   return (
-      <LayoutOffice>
+      
+        <LayoutOffice>
+
           <div className="container-home">
             
             <img className="avatar-office" src={avatar} width={150} height={150}/>
@@ -126,7 +130,7 @@ export default function home() {
             officeData={officeData}
             tokenOffice={tokenOffice}
             photoUser={photoUser}
-          />
+            />
           <h3 className='subtitle-home'>Clientes...</h3>
           <Card
           officeData={officeData}
@@ -134,6 +138,9 @@ export default function home() {
           setPhotoUser={setPhotoUser}
           />
 
-      </LayoutOffice>
+        </LayoutOffice>
+      
   )
 }
+
+export default HomeCenter

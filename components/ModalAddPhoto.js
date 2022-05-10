@@ -11,10 +11,10 @@ export default function ModalAddPhoto(props) {
     if(userPhoto[0] === 'client'){
       console.log('client');
       
-       urls = `http://ec2-54-227-138-69.compute-1.amazonaws.com/clients/${userPhoto[1]}`
+       urls = `https://ec2-54-227-138-69.compute-1.amazonaws.com/clients/${userPhoto[1]}`
     } else {
       console.log('office');
-      urls = `http://ec2-54-227-138-69.compute-1.amazonaws.com/offices/${id}`
+      urls = `https://ec2-54-227-138-69.compute-1.amazonaws.com/offices/${id}`
     }
         console.log(urls);
     async function uploadAvatar(e) {
@@ -28,7 +28,7 @@ export default function ModalAddPhoto(props) {
             body: formData
         }
        try {
-           let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/upload/${props.officeData.bucket}`, options)
+           let res = await fetch(`https://ec2-54-227-138-69.compute-1.amazonaws.com/upload/${props.officeData.bucket}`, options)
            let json = await res.json()
             
            if(!res.ok) throw {error: error}

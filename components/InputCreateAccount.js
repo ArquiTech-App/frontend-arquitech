@@ -19,7 +19,7 @@ export default function InputCreateAccount({errorC, setErrorC, setModalShow, set
                
             }
             
-            let res = await fetch('http://ec2-54-227-138-69.compute-1.amazonaws.com/offices/createAccount', options)
+            let res = await fetch('https://ec2-54-227-138-69.compute-1.amazonaws.com/offices/createAccount', options)
             let json = await res.json()
             
             if(!res.ok) throw {error: json.error, message: json.message}

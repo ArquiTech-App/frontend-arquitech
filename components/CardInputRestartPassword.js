@@ -16,7 +16,7 @@ export default function CardInputRestartPassword({token}) {
             body: JSON.stringify(data)
         }
         try {
-            let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/pass/restartPassword?token=${token}`, options);
+            let res = await fetch(`https://ec2-54-227-138-69.compute-1.amazonaws.com/pass/restartPassword?token=${token}`, options);
             let json = await res.json();
             if(!res.ok) throw {error: json.message}
             Router.push('../login')

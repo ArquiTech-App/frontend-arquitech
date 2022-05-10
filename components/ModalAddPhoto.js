@@ -8,13 +8,13 @@ export default function ModalAddPhoto(props) {
     let id = props.officeData._id;
     let userPhoto = props.photoUser;
     let urls = ''
-    console.log(userPhoto);
     if(userPhoto[0] === 'client'){
       console.log('client');
-       urls = `https://arquitech.deveckor.com/clients/${userPhoto[1]}`
+      
+       urls = `http://ec2-54-227-138-69.compute-1.amazonaws.com/clients/${userPhoto[1]}`
     } else {
       console.log('office');
-      urls = `https://arquitech.deveckor.com/offices/${id}`
+      urls = `http://ec2-54-227-138-69.compute-1.amazonaws.com/offices/${id}`
     }
         console.log(urls);
     async function uploadAvatar(e) {
@@ -28,17 +28,18 @@ export default function ModalAddPhoto(props) {
             body: formData
         }
        try {
-           let res = await fetch(`https://arquitech.deveckor.com/upload/${props.officeData.bucket}`, options)
+           let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/upload/${props.officeData.bucket}`, options)
            let json = await res.json()
             
            if(!res.ok) throw {error: error}
            let url = json.url;
             let u = url.split('?')
             url = u[0]
+            console.log('hola');
             console.log(url);
-           
+            
             addAvatar(url);
-            Router.reload(window.location.pathname)
+            Router.reload(location.pathname)
             props.onHide();
 
        } catch (error) {
@@ -47,11 +48,11 @@ export default function ModalAddPhoto(props) {
     }
     
     async function addAvatar(url){
-        
+        console.log(url);
         let options = {
             method: 'PATCH',
             headers: {
-                "content-type": "application/json",
+                "Content-type": "application/json",
                 "Authorization": token
             },
             body: JSON.stringify({"avatar": url})
@@ -60,11 +61,11 @@ export default function ModalAddPhoto(props) {
 
             let res = await fetch(urls, options)
             let json = await res.json();
-
+            console.log(res);
             if(!res.ok) throw {error: json.message}
             console.log(json);
         } catch (error) {
-            console.log(error.error);
+            console.log(error);
         }
     }
 

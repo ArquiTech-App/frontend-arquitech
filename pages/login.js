@@ -8,6 +8,7 @@ import ModalError from '../components/ModalError'
 
 export default function Login(){
     const [modalShow, setModalShow] = useState(false);
+    const [userState, setUserState] = useState('');
   const [errorC, setErrorC] = useState("");
   const [titleModal, setTitleModal] = useState("");
   const [messageModal, setMessageModal] = useState("");
@@ -45,6 +46,8 @@ export default function Login(){
             setMessageModal={setMessageModal}
             success={success}
             setSuccess={setSuccess}
+            userState={userState}
+            setUserState={setUserState}
             />
             <ModalError
         show={modalShow}
@@ -60,6 +63,7 @@ export default function Login(){
         success={success}
         setSuccess={setSuccess}
         pageComing={pageComing}
+        userState={userState}
       />
             </div>
             

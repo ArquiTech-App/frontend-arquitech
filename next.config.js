@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
 
-module.exports = nextConfig
+
+module.exports = {
+  reactStrictMode: true,
+  images: {
+    domains: ['https://arquitech.s3.us-east-2.amazonaws.com'],
+  }
+}
+  
+

@@ -11,8 +11,14 @@
   "dependencies": {
     "axios": "^0.27.2",
     "bootstrap": "^5.1.3",
+<<<<<<< HEAD
     "next": "^12.1.5",
     "react": "^17.0.2",
+=======
+    "next": "12.1.5",
+    "query-string": "^7.1.1",
+    "react": "^16.14.0",
+>>>>>>> d21312a2c736f79c37cfaea8847e0263edde0cae
     "react-bootstrap": "^2.3.0",
     "react-dom": "^16.14.0",
     "react-forge-viewer": "^0.3.3",

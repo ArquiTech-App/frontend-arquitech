@@ -14,6 +14,7 @@ export default function ModalError(props) {
 
                 Router.push('/CreateAccount')
             } else {
+              
                 Router.push('/login')
             }
         } else {
@@ -23,7 +24,14 @@ export default function ModalError(props) {
             if(props.pageComing === 'ceateacount'){
             Router.push('/login')
             } else {
+              
+              if(props.userState === 'office'){
+                
                 Router.push('offices/home')
+              } else {
+                Router.push('customer/home')
+
+              }
             }
         }
     }

@@ -1,4 +1,4 @@
-import {useEffect, useContext, useState} from 'react';
+import React, {useEffect, useContext, useState} from 'react';
 import LayoutOffice from '../../components/LayoutOffice'
 import Image from 'next/image'
 import avatarDefault from '../../public/abstract-user-flat-4.svg'
@@ -6,10 +6,13 @@ import plus from '../../public/ftadd.svg'
 import OfficeContext from '../../context/officeContext'
 import styled from 'styled-components'
 import ModalAddPhoto from '../../components/ModalAddPhoto'
+import Card from '../../components/CardClientsOffice';
+
 
 export default function home() {
 
   const [modalShow, setModalShow] = useState(false);
+  const [photoUser, setPhotoUser] = useState('');
   
  const {tokenOffice,setTokenOffice,isLoginOffice,setIsLoginOffice, officeData, setOfficeData} = useContext(OfficeContext);
  
@@ -44,7 +47,7 @@ export default function home() {
         let res = await fetch(`http://localhost:8080/offices/${id}`, options);
         let json = await res.json()
         let user = json.data.offices;
-        
+        console.log(user);
         setOfficeData(user)
         createFolder(user);
       } catch (error) {
@@ -75,6 +78,7 @@ export default function home() {
  let avatar = ''
  if (!officeData.avatar) {
    avatar = avatarDefault
+   avatar = avatar.src
  } else {
    avatar = officeData.avatar
  }
@@ -90,19 +94,13 @@ export default function home() {
  left:110px
  `
 
+
   return (
       <LayoutOffice>
-          <div >
+          <div className="container-home">
             
-
-            <Image
-            className="avatar-office"
-            src={avatar}
-            alt='avatar'
-            width={150}
-            height={150}
-            
-            />
+            <img className="avatar-office" src={avatar} width={150} height={150}/>
+           
            
             <ImageContainer>
 
@@ -118,13 +116,22 @@ export default function home() {
 
           </div>
           <div className="back-home">
-              <h1>{`Bienvenido ${officeData.name}`}</h1>
+              <h1>Bienvenido  <span className='nombre-office'>{officeData.name}</span></h1>
           </div>
           <ModalAddPhoto
             show={modalShow}
             onHide={() => {
               setModalShow(false);
             }}
+            officeData={officeData}
+            tokenOffice={tokenOffice}
+            photoUser={photoUser}
+          />
+          <h3 className='subtitle-home'>Clientes...</h3>
+          <Card
+          officeData={officeData}
+          toClick={toClick}
+          setPhotoUser={setPhotoUser}
           />
 
       </LayoutOffice>

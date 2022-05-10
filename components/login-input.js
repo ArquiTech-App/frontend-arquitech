@@ -22,15 +22,18 @@ export default function LoginInput({
 
   async function onSubmit(data) {
     try {
+      
       let option = {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
-          "content-type": "application/json",
+          
+          "Content-Type": "application/json"
+          
         },
       };
 
-      let res = await fetch("http://localhost:8080/offices/login", option);
+      let res = await fetch("http://ec2-54-227-138-69.compute-1.amazonaws.com/offices/login", option);
       let json = await res.json();
 
       if (!res.ok)
@@ -50,7 +53,7 @@ export default function LoginInput({
         let options = error.option;
         
         try {
-          let res = await fetch("http://localhost:8080/clients/login", options);
+          let res = await fetch("http://ec2-54-227-138-69.compute-1.amazonaws.com/clients/login", options);
           let json = await res.json();
           if (!res.ok)
             throw { error: json.error, message: json.message };

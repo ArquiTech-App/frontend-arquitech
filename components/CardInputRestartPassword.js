@@ -1,5 +1,6 @@
 import React from 'react'
 import {useForm} from 'react-hook-form'
+import Router from 'next/router'
 
 
 export default function CardInputRestartPassword({token}) {
@@ -15,9 +16,10 @@ export default function CardInputRestartPassword({token}) {
             body: JSON.stringify(data)
         }
         try {
-            let res = await fetch(`http://localhost:8080/clients/restartPassword?token=${token}`, options);
+            let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/pass/restartPassword?token=${token}`, options);
             let json = await res.json();
             if(!res.ok) throw {error: json.message}
+            Router.push('../login')
             console.log(json);
         } catch (error) {
             console.log(error);

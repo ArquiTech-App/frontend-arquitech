@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import {useForm} from 'react-hook-form'
 import OfficeContext  from '../context/officeContext';
+import Router from 'next/router'
 
 
 export default function CardClientInput() {
@@ -25,13 +26,13 @@ export default function CardClientInput() {
         }
         try {
             
-            let res = await fetch('http://localhost:8080/clients/createClient', options)
+            let res = await fetch('http://ec2-54-227-138-69.compute-1.amazonaws.com/clients/createClient', options)
             let json = await res.json();
 
             
             if(!res.ok) throw {error: json}
 
-
+            Router.push('offices/home')
         } catch (error) {
             console.log(error);
         }

@@ -14,8 +14,7 @@ export default function CardClientsOffice(props) {
     
 
 let clients = officeData.clients;
-let avatar = avatarDefault;
-    avatar = avatar.src
+
     
     function addClient(){
         Router.push('/AddClients')
@@ -45,7 +44,8 @@ let avatar = avatarDefault;
         <div className="container-card">
 
         {!clients ?<p>Sin clientes por el momento...</p>: clients.map(el => {
-            
+            let avatar = avatarDefault;
+            avatar = avatar.src
             if(el.avatar){
                 avatar = el.avatar
             }

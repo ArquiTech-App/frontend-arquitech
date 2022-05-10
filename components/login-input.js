@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-export default function LoginInput({
+function LoginI({
   setTokenOffice,
   tokenOffice,
   setIsLoginOffice,
@@ -111,3 +111,5 @@ export default function LoginInput({
     </>
   );
 }
+
+export default LoginI

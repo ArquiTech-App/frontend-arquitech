@@ -6,8 +6,7 @@ import Link from 'next/link'
 export default function home() {
   return (
       <LayoutCustomers>
-        <Link href="/CustomerHome"> Dashboard Client </Link>
-          
+        <h1>Documents</h1>
       </LayoutCustomers>
   )
 }

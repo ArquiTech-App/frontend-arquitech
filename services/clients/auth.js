@@ -12,9 +12,23 @@ function login(dataClients){
     }
     return fetch(URL, options)
 }
+function getUser(token){
+    const URL = `${URL_BASE}/clients/user-current`
+    const options= {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token
+        },
+        mode: 'cors'
+    }
+    return fetch(URL, options) // promesa
+}
+
 
 export {
-    login
+    login,
+    getUser
 } 
 
 

@@ -14,7 +14,7 @@ export default function Viewer(){
   useEffect(() => {
     const getTokenAutodesk = async () => {
       
-      let res = await fetch('https://ec2-54-227-138-69.compute-1.amazonaws.com/autodesk/forge/oauth/public'),
+      let res = await fetch('http://ec2-54-227-138-69.compute-1.amazonaws.com/autodesk/forge/oauth/public'),
       json = await res.json();
       setAccessTokenForge(json)
       

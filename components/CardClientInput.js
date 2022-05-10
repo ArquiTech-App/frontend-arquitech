@@ -26,7 +26,7 @@ export default function CardClientInput() {
         }
         try {
             
-            let res = await fetch('https://ec2-54-227-138-69.compute-1.amazonaws.com/clients/createClient', options)
+            let res = await fetch('http://ec2-54-227-138-69.compute-1.amazonaws.com/clients/createClient', options)
             let json = await res.json();
 
             

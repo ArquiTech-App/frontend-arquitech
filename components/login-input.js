@@ -33,7 +33,7 @@ function LoginI({
         },
       };
 
-      let res = await fetch("https://ec2-54-227-138-69.compute-1.amazonaws.com/offices/login", option);
+      let res = await fetch("http://ec2-54-227-138-69.compute-1.amazonaws.com/offices/login", option);
       let json = await res.json();
 
       if (!res.ok)
@@ -54,7 +54,7 @@ function LoginI({
         let options = error.option;
         
         try {
-          let res = await fetch("https://ec2-54-227-138-69.compute-1.amazonaws.com/clients/login", options);
+          let res = await fetch("http://ec2-54-227-138-69.compute-1.amazonaws.com/clients/login", options);
           let json = await res.json();
           if (!res.ok)
             throw { error: json.error, message: json.message };

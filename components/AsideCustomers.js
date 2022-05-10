@@ -25,35 +25,35 @@ export default function AsideCustomers() {
           <Accordion.Body>
             <ListGroup>
               <ListGroup.Item action variant="light">
-                <Link href="gantt">
-                  <button variant="light" className="btn-aside">
+                <Link href="/gantt">
+                  <a variant="light" className="btn-aside">
                     <Image src={gantt} alt="logo-gantt" />
                     Gantt
-                  </button>
+                  </a>
                 </Link>
               </ListGroup.Item>
-              <ListGroup.Item action variant="light">
-                <Link href="documents">
-                  <button className="btn-aside">
+              <ListGroup.Item action variant="/light">
+                <Link href="/documents">
+                  <a className="btn-aside">
                     <Image src={documents} alt="logo-documents" />
                     Documents
-                  </button>
+                  </a>
                 </Link>
               </ListGroup.Item>
               <ListGroup.Item action variant="light">
-                <Link href="Viewer">
-                  <button className="btn-aside">
+                <Link href="/Viewer">
+                  <a className="btn-aside">
                     <Image src={view} alt="logo-view" />
                     View 3D
-                  </button>
+                  </a>
                 </Link>
               </ListGroup.Item>
               <ListGroup.Item action variant="light">
-                <Link href="contracts">
-                  <button className="btn-aside">
+                <Link href="/contracts">
+                  <a className="btn-aside">
                     <Image src={contracts} alt="logo-contracts" />
                     Contracts
-                  </button>
+                  </a>
                 </Link>
               </ListGroup.Item>
             </ListGroup>
@@ -61,38 +61,37 @@ export default function AsideCustomers() {
         </Accordion.Item>
         <Accordion.Item eventKey="1">
           <Accordion.Header>Project #2</Accordion.Header>
-          <Accordion.Body>
-            <ListGroup>
+          <Accordion.Body> <ListGroup>
               <ListGroup.Item action variant="light">
-                <Link href="gantt">
-                  <button variant="light" className="btn-aside">
+                <Link href="/gantt">
+                  <a variant="light" className="btn-aside">
                     <Image src={gantt} alt="logo-gantt" />
                     Gantt
-                  </button>
+                  </a>
                 </Link>
               </ListGroup.Item>
               <ListGroup.Item action variant="light">
-                <Link href="documents">
-                  <button className="btn-aside">
+                <Link href="/documents">
+                  <a className="btn-aside">
                     <Image src={documents} alt="logo-documents" />
                     Documents
-                  </button>
+                  </a>
                 </Link>
               </ListGroup.Item>
               <ListGroup.Item action variant="light">
-                <Link href="Viewer">
-                  <button className="btn-aside">
+                <Link href="/Viewer">
+                  <a className="btn-aside">
                     <Image src={view} alt="logo-view" />
                     View 3D
-                  </button>
+                  </a>
                 </Link>
               </ListGroup.Item>
               <ListGroup.Item action variant="light">
-                <Link href="contracts">
-                  <button className="btn-aside">
+                <Link href="/contracts">
+                  <a className="btn-aside">
                     <Image src={contracts} alt="logo-contracts" />
                     Contracts
-                  </button>
+                  </a>
                 </Link>
               </ListGroup.Item>
             </ListGroup>

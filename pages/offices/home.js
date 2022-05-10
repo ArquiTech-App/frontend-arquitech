@@ -21,9 +21,10 @@ function HomeCenter() {
   
   useEffect(() =>{
    setTokenOffice(
-      window.localStorage.getItem('token')
+     localStorage.getItem('token')
    )
-   let token = window.localStorage.getItem('token')
+   let token = localStorage.getItem('token')
+   
    
    
    async function getId(){
@@ -31,7 +32,7 @@ function HomeCenter() {
 
     try {
       
-      let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/offices/getID/${token}`)
+      let res = await fetch(`https://arquitech.deveckor.com/offices/getID/${token}`)
       let json = await res.json();
       let idUser = json.data.id;
       getUser(idUser, token)
@@ -42,12 +43,14 @@ function HomeCenter() {
     }
     }
     async function getUser(id, token){
+      console.log(token);
       try {
         let options = {
-          headers: { 'Authorization': token}
+          headers: {'Authorization': token}
         }
-        let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/offices/${id}`, options);
+        let res = await fetch(`https://arquitech.deveckor.com/offices/${id}`, options);
         let json = await res.json()
+        console.log(json);
         let user = json.data.offices;
         console.log(user);
         setOfficeData(user)
@@ -65,7 +68,7 @@ function HomeCenter() {
           },
           body: JSON.stringify({"name": user.bucket})
         }
-        let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/createFolder`,options);
+        let res = await fetch(`https://arquitech.deveckor.com/createFolder`,options);
         let json = await res.json();
         console.log(json);
         if (!res.ok) throw {error: error} 

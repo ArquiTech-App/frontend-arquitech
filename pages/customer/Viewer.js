@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import ForgeViewer from 'react-forge-viewer';
 import Layout from '../../components/Layout'
+import dynamic from 'next/dynamic'
 
+
+const DynamicComponent = dynamic(
+  () => import('react-forge-viewer'),
+  { ssr: false}
+)
 
 export default function Viewer(){
   const [accessTokenForge, setAccessTokenForge] = useState();
@@ -80,7 +85,7 @@ export default function Viewer(){
   return (
     <Layout>
       {(!accessTokenForge)?null: 
-      <ForgeViewer
+      <DynamicComponent
       version="6.0"
       urn='dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YXJjaGl2b18yL1Byb3llY3RvMS5ydnQ='
       view={view}

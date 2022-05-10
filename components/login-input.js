@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-export default function LoginInput({
+function LoginI({
   setTokenOffice,
   tokenOffice,
   setIsLoginOffice,
@@ -38,11 +38,12 @@ export default function LoginInput({
 
       if (!res.ok)
         throw { error: json.error, message: json.message, option: option };
+       
 
+      localStorage.setItem("token", json.data.token);
+    
       setTokenOffice(json.data.token);
       setIsLoginOffice(true);
-      console.log(tokenOffice);
-      window.localStorage.setItem("token", json.data.token);
       setTitleModal(`Bienvenido ${data.email}`);
       setMessageModal(json.message);
       setSuccess(true);
@@ -61,7 +62,7 @@ export default function LoginInput({
           setTokenOffice(json.data.token);
           setIsLoginOffice(true);
           console.log(tokenOffice);
-          window.localStorage.setItem("token", json.data.token);
+          localStorage.setItem("token", json.data.token);
           setTitleModal(`Bienvenido ${data.email}`);
           setMessageModal(json.message);
           setSuccess(true);
@@ -111,3 +112,5 @@ export default function LoginInput({
     </>
   );
 }
+
+export default LoginI

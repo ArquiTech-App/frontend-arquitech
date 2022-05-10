@@ -21,9 +21,10 @@ function HomeCenter() {
   
   useEffect(() =>{
    setTokenOffice(
-      window.localStorage.getItem('token')
+     localStorage.getItem('token')
    )
-   let token = window.localStorage.getItem('token')
+   let token = localStorage.getItem('token')
+   
    
    
    async function getId(){
@@ -34,6 +35,7 @@ function HomeCenter() {
       let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/offices/getID/${token}`)
       let json = await res.json();
       let idUser = json.data.id;
+      console.log(idUser);
       getUser(idUser, token)
 
       
@@ -42,15 +44,18 @@ function HomeCenter() {
     }
     }
     async function getUser(id, token){
+      console.log(token);
       try {
         let options = {
-          headers: { 'Authorization': token}
+          headers: {'Authorization': token}
         }
         let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/offices/${id}`, options);
         let json = await res.json()
+        console.log(json);
         let user = json.data.offices;
-        console.log(user);
+        console.log(user.data);
         setOfficeData(user)
+        console.log(officeData);
         createFolder(user);
       } catch (error) {
         console.log(error);

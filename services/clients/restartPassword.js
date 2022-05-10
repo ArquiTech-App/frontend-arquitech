@@ -1,12 +1,12 @@
 import React from 'react'
-import userouter from 'next/router'
+import useRouter from 'next/router'
 import Image from 'next/image'
 import logo from '../../public/logo.svg'
 import CardInputRestartPassword from '../../components/CardInputRestartPassword'
 
 
 function restart() {
-  const router = userouter();
+  const router = useRouter();
   const token = router.query
   
   return (

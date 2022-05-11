@@ -6,7 +6,7 @@ import Link from 'next/link'
 export default function home() {
   return (
       <LayoutCustomers>
-        <h1>Documents</h1>
+        <h1>Projects</h1>
       </LayoutCustomers>
   )
 }

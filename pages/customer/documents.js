@@ -1,11 +1,10 @@
 import React from 'react'
-import Layout from '../../components/Layout'
+import LayoutCustomers from '../../components/LayoutCustomers'
 
 export default function documents () {
   return (
-    <Layout>
-
-      <div>documents</div>
-    </Layout>
+    <LayoutCustomers>
+      <h1>Documents</h1>
+    </LayoutCustomers>
   )
 }

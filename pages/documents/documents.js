@@ -1,10 +1,11 @@
 import React from 'react'
 import LayoutCustomers from '../../components/LayoutCustomers'
 
-export default function contracts () {
+export default function documents () {
   return (
     <LayoutCustomers>
-      <h1>Contracts</h1>
+
+      <h1>Documents</h1>
     </LayoutCustomers>
   )
 }

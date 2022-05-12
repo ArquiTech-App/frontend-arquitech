@@ -5,7 +5,7 @@ import logo from '../public/logo.svg'
 import CardInputRestartPassword from '../components/CardInputRestartPassword'
 
 
-function restart() {
+function Restart() {
   
     const router = useRouter();
     let token = router.query
@@ -30,4 +30,4 @@ function restart() {
   )
 }
 
-export default restart
+export default Restart

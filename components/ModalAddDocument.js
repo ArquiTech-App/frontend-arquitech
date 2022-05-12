@@ -5,7 +5,6 @@ import Router from 'next/router'
 export default function ModalAddDocument(props) {
 
     const {bucket, id, onHide} = props
-
     async function uploadFile(e){
         e.preventDefault()
         let formData = new FormData()
@@ -36,7 +35,13 @@ export default function ModalAddDocument(props) {
         }
         
     }
-
+    async function addFile(url, name){
+      try {
+        
+      } catch (error) {
+        
+      }
+    }
 
   return (
     <Modal

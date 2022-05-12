@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import LayoutOffice from '../../components/LayoutOffice'
 import {useRouter} from 'next/router'
 import ModalAddProyects from '../../components/ModalAddProyects'
+import ModalAddDocument from '../../components/ModalAddDocument'
 import { Button } from 'react-bootstrap'
 import LayoutClientOffice from '../../components/LayoutClientOffice'
 
@@ -9,7 +10,9 @@ import LayoutClientOffice from '../../components/LayoutClientOffice'
 export default function OfficeClientProyect() {
   const [proyect, setProyect] = useState();
   const [data, setData] = useState();
+  const [idProyect, setIdProyect] = useState();
   const [modalShow, setModalShow] = useState(false);
+  const [modalShowFile, setModalShowFile] = useState(false);
   const router = useRouter();
   const pass = router.query;
   const bucket = pass.bucket;
@@ -37,6 +40,10 @@ export default function OfficeClientProyect() {
   function clickModal(){
     setModalShow(true)
   }
+  function clickModalFile(el){
+    setIdProyect(el._id)
+    setModalShowFile(true)
+  }
   return (
 
     <LayoutOffice>
@@ -49,6 +56,8 @@ export default function OfficeClientProyect() {
       id={id}
       bucket={bucket}
       />
+      
+
       <LayoutClientOffice>
       <div data={data}>
 
@@ -61,15 +70,24 @@ export default function OfficeClientProyect() {
           
           return (
             <>
-            <div className="card">
+            <div className="card p-4">
               <h3>{el.name}</h3>
               <h5>{el.organization}</h5>
-              <Button>Agregar Archivo</Button>
+              <Button onClick={()=>{clickModalFile(el)}}>Agregar Archivo</Button>
             </div>
+            
             </>
           )
         })}
       <Button  onClick={clickModal}>Agregar Proyecto</Button>
+      <ModalAddDocument
+      show={modalShowFile}
+      onHide={() => {
+        setModalShowFile(false);
+      }}
+      id={idProyect}
+      bucket={bucket}
+      />
       </div>
       
     }

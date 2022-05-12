@@ -9,7 +9,7 @@ import {getProject} from '../../services/projects'
 export default function Documents () {
   const router = useRouter()
   const idProject = router.query.project
-
+  console.log(idProject)
   const [project, setProject] = useState({})
 
   useEffect( () => {
@@ -21,11 +21,11 @@ export default function Documents () {
       console.log(dataJson)
       setProject(dataJson.data.projects) 
     }
-    console.log('se monta el componente')
+    console.log('se monta el componente de documents')
     getDataProject(idProject) 
     .catch(console.error)
 
-  }, [idProject])
+  }, [])
   const docs = [
     {uri: '/dwg.png'},
     {uri: '/CARP-1.11 Escritorio Sala TV.pdf'}, 

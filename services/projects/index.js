@@ -1,7 +1,7 @@
 import {URL_BASE} from '../config'
  
 function getProject(id){
-    const URL = `${URL_BASE}/projects/${id}`
+    const URL = `${URL_BASE}/proyects/${id}`
     const options= {
         method: 'GET',
         headers: {

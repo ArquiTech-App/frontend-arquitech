@@ -10,8 +10,12 @@ export default function ModalAddDocument(props) {
         let formData = new FormData()
         
         formData.append('file', e.target.file.files[0])
-        const name = e.target.file.files[0].name;
-        console.log(name);
+        let name = e.target.file.files[0].name;
+        let extencion = name.substr(-3)
+        
+        if (extencion === 'dwg' || extencion === 'rvt') {
+          return console.log('archivo 3d');
+        }
         let options = {
             method: 'POST',
             body: formData
@@ -28,7 +32,7 @@ export default function ModalAddDocument(props) {
             console.log(url);
             
             addFile(url, name);
-            Router.reload(location.pathname)
+            // Router.reload(location.pathname)
             props.onHide();
         } catch (error) {
             console.log(error.error);
@@ -37,9 +41,25 @@ export default function ModalAddDocument(props) {
     }
     async function addFile(url, name){
       try {
-        
+        let options = {
+          method: 'PATCH',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: {
+            documents:{
+              "name": name,
+              "url": url
+            }
+          }
+        }
+        let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/proyects/${id}`, options);
+        let json = await res.json();
+        console.log(json);
+        if(!res.ok) throw {error: json.error}
+
       } catch (error) {
-        
+        console.log(error);
       }
     }
 

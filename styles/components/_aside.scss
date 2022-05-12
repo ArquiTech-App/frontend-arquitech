@@ -2,8 +2,8 @@
 
 .aside-layout{
     width: 40vw;
-    min-width: 300px;
-    max-width: 350px;
+    min-width: 350px;
+    max-width: 450px;
     background-color: white;
     .logo-aside{
         background-color: #001F3E;
@@ -18,6 +18,7 @@
             height:60px;
             display: flex;
             align-items: center;
+            
             width: 100%;
             color: #979797;
             font-weight: bold;
@@ -31,6 +32,16 @@
                 color: #304A63;
             }
 
+        }
+        .accordion-container{
+            .accordion-item{
+                border: none;
+                .accordion-header{
+                    width: 100%;
+                   
+                    
+                }
+            }
         }
     }
 }

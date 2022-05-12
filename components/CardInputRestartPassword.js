@@ -16,7 +16,7 @@ export default function CardInputRestartPassword({token}) {
             body: JSON.stringify(data)
         }
         try {
-            let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/pass/restartPassword?token=${token}`, options);
+            let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/pass/restartPassword?token=${token}`, options);
             let json = await res.json();
             if(!res.ok) throw {error: json.message}
             Router.push('../login')
@@ -40,7 +40,7 @@ export default function CardInputRestartPassword({token}) {
             <label>
             Confirma tu password:
             <input {...register('confirmPassword', {required: true})} type="password"/>
-            {errors.confirmPassword?.type === 'required' && <p>El apellido es requerido.</p>}
+            {errors.confirmPassword?.type === 'required' && <p>Confirma el password es requerido.</p>}
             </label>
             <input className="btn-enviar" type="submit"/>
         </form>

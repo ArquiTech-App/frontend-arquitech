@@ -1,16 +1,20 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {useForm} from 'react-hook-form'
-import OfficeContext  from '../context/officeContext';
+
 import Router from 'next/router'
 
 
 export default function CardClientInput() {
 
-    const {tokenOffice, officeData} = useContext(OfficeContext);
+    const [officeData, setOfficeData] = useState();
     const {register, handleSubmit, formState: {errors}} = useForm();
 
+    useEffect(() => {
+        let dat = localStorage.getItem("data")
+        setOfficeData(JSON.parse(dat));
+    },[])
    
-
+    
     async function onSubmit(data){
         let office = officeData._id;
         data = {
@@ -26,13 +30,13 @@ export default function CardClientInput() {
         }
         try {
             
-            let res = await fetch('http://ec2-54-227-138-69.compute-1.amazonaws.com/clients/createClient', options)
+            let res = await fetch('https://eb-arquitech.lunacrisdev.xyz/clients/createClient', options)
             let json = await res.json();
 
             
             if(!res.ok) throw {error: json}
 
-            Router.push('offices/home')
+            Router.push('offices/Home')
         } catch (error) {
             console.log(error);
         }

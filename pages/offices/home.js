@@ -3,7 +3,6 @@ import LayoutOffice from '../../components/LayoutOffice'
 import Image from 'next/image'
 import avatarDefault from '../../public/abstract-user-flat-4.svg'
 import plus from '../../public/ftadd.svg'
-import OfficeContext from '../../context/officeContext'
 import styled from 'styled-components'
 import ModalAddPhoto from '../../components/ModalAddPhoto'
 import Card from '../../components/CardClientsOffice';
@@ -16,52 +15,51 @@ function HomeCenter() {
   
   const [modalShow, setModalShow] = useState(false);
   const [photoUser, setPhotoUser] = useState('');
+  const [data, setData] = useState({})
+  const [token, setToken] = useState()
   
- const {tokenOffice,setTokenOffice,isLoginOffice,setIsLoginOffice, officeData, setOfficeData} = useContext(OfficeContext);
-  
+ 
+ let avatar = ''
   useEffect(() =>{
-   setTokenOffice(
-     localStorage.getItem('token')
-   )
+   
    let token = localStorage.getItem('token')
-   
-   
+   setToken(token)
    
    async function getId(){
      
 
     try {
       
-      let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/offices/getID/${token}`)
+      let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/offices/getID/${token}`)
       let json = await res.json();
       let idUser = json.data.id;
-      console.log(idUser);
+      
       getUser(idUser, token)
 
       
     } catch (error) {
-      console.log(error);
+      
     }
     }
     async function getUser(id, token){
-      console.log(token);
+      
       try {
         let options = {
           headers: {'Authorization': token}
         }
-        let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/offices/${id}`, options);
+        let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/offices/${id}`, options);
         let json = await res.json()
-        console.log(json);
         let user = json.data.offices;
-        console.log(user.data);
-        setOfficeData(user)
-        console.log(officeData);
+        setData({...user})
+        
+        localStorage.setItem('data', JSON.stringify(user))
         createFolder(user);
       } catch (error) {
-        console.log(error);
+        
       }
     }
     async function createFolder(user){
+      
       try {
         let options = {
           method: 'POST',
@@ -70,25 +68,25 @@ function HomeCenter() {
           },
           body: JSON.stringify({"name": user.bucket})
         }
-        let res = await fetch(`http://ec2-54-227-138-69.compute-1.amazonaws.com/createFolder`,options);
+        let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/createFolder`,options);
         let json = await res.json();
         console.log(json);
-        if (!res.ok) throw {error: error} 
+        if (!res.ok) throw {error: json.error} 
 
       } catch (error) {
-        console.log(error);
+        console.log(error.error);
       }
     }
     getId()
- },[])
-
- let avatar = ''
- if (!officeData.avatar) {
-   avatar = avatarDefault
-   avatar = avatar.src
- } else {
-   avatar = officeData.avatar
- }
+  },[])
+  
+  
+  if (!data.avatar) {
+    avatar = avatarDefault
+    avatar = avatar.src
+  } else {
+    avatar = data.avatar
+  }
  
  function toClick(e) {
   setModalShow(true)
@@ -125,20 +123,21 @@ function HomeCenter() {
 
           </div>
           <div className="back-home">
-              <h1>Bienvenido  <span className='nombre-office'>{officeData.name}</span></h1>
+              <h1>Bienvenido  <span className='nombre-office'>{data.name}</span></h1>
           </div>
+          
           <ModalAddPhoto
             show={modalShow}
             onHide={() => {
               setModalShow(false);
             }}
-            officeData={officeData}
-            tokenOffice={tokenOffice}
+            data={data}
+            token={token}
             photoUser={photoUser}
             />
           <h3 className='subtitle-home'>Clientes...</h3>
           <Card
-          officeData={officeData}
+          data={data}
           toClick={toClick}
           setPhotoUser={setPhotoUser}
           />

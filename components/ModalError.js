@@ -1,10 +1,27 @@
-import React from 'react'
+import {useEffect, useState} from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Router from 'next/router'
+import { getUser } from '../services/clients/auth'
+
 
 export default function ModalError(props) {
+  const [projects, setProjects] = useState([])
 
+  useEffect( () => {
+    const getDataUser = async (token) => {
+      
+      const response = await getUser(token)
+      
+      const dataJson = await response.json()
+      console.log(dataJson)
+      setProjects(dataJson.data.clients.projects) 
+    }
+    console.log('se monta el componente')
+    getDataUser(localStorage.getItem('token')) 
+    .catch(console.error)
+
+  }, [])
     function clickModal() {
         if (!props.success) {
             
@@ -27,10 +44,13 @@ export default function ModalError(props) {
               
               if(props.userState === 'office'){
                 
-                Router.push('offices/home')
+                Router.push('/offices/home')
               } else {
-                Router.push('customer/home')
-
+                //Router.push('customer/home')
+                Router.push({
+                  pathname: '/customer/home',
+                  query: { project: projects[0]._id },
+                })
               }
             }
         }

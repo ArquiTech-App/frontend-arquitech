@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Layout from '../../components/Layout'
+import LayoutCustomers from '../../components/LayoutCustomers'
 import dynamic from 'next/dynamic'
 
 
 const DynamicComponent = dynamic(
   () => import('react-forge-viewer'),
-  { ssr: true}
+  { ssr: false}
 )
 
 export default function Viewer(){
@@ -14,7 +14,7 @@ export default function Viewer(){
   useEffect(() => {
     const getTokenAutodesk = async () => {
       
-      let res = await fetch('http://ec2-54-227-138-69.compute-1.amazonaws.com/autodesk/forge/oauth/public'),
+      let res = await fetch('https://eb-arquitech.lunacrisdev.xyz/autodesk/forge/oauth/public'),
       json = await res.json();
       setAccessTokenForge(json)
       
@@ -24,6 +24,7 @@ export default function Viewer(){
   
   const [view, setView] = useState(null)
 
+  //preparando la peticion replica
 
  
     
@@ -83,7 +84,7 @@ export default function Viewer(){
 
 
   return (
-    <Layout>
+    <LayoutCustomers>
       {(!accessTokenForge)?null: 
       <DynamicComponent
       version="6.0"
@@ -100,7 +101,7 @@ export default function Viewer(){
     />
       }
       
-    </Layout>
+    </LayoutCustomers>
   )
 }
 

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link' 
 
 const Navigation = () => {
   return (
@@ -14,7 +14,7 @@ const Navigation = () => {
         <Link href='/LearnAndHelp'>
           <li>Aprende y Ayuda</li>
         </Link>
-        <Link href='/login'>
+        <Link href='login'>
           <li>Login</li>
         </Link>
         </ul>

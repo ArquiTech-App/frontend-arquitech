@@ -1,14 +1,15 @@
 import React from 'react'
-import useRouter from 'next/router'
+import {useRouter} from 'next/router'
 import Image from 'next/image'
-import logo from '../../public/logo.svg'
-import CardInputRestartPassword from '../../components/CardInputRestartPassword'
+import logo from '../public/logo.svg'
+import CardInputRestartPassword from '../components/CardInputRestartPassword'
 
 
 function restart() {
-  const router = useRouter();
-  const token = router.query
   
+    const router = useRouter();
+    let token = router.query
+    token = token.token
   return (
     <div className="container-restart-password">
       <div className="container-blank">
@@ -22,7 +23,7 @@ function restart() {
         height={150}
       />
       <CardInputRestartPassword
-      token = {token.token}
+      token = {token}
       />
       </div>
     </div>

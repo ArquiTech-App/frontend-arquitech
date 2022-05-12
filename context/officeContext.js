@@ -1,4 +1,4 @@
-import {createContext, useState} from 'react';
+import {createContext, useState, useEffect} from 'react';
 
 
 
@@ -6,11 +6,11 @@ const OfficeContext = createContext();
 
 
 function OfficeProvider({children}) { 
-    const [officeData, setOfficeData] = useState({})
+    const [officeData, setOfficeData] = useState()
     const [isLoginOffice, setIsLoginOffice] = useState(false);
-    const [tokenOffice, setTokenOffice] = useState('');
+    const [tokenOffice, setTokenOffice] = useState();
 
-    
+
 
     const data = {
         isLoginOffice,

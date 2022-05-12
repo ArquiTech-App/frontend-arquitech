@@ -10,10 +10,10 @@ import plus from '../public/ftadd.svg'
 
 export default function CardClientsOffice(props) {
     
-    const {officeData, toClick, setPhotoUser} = props
+    const {data, toClick, setPhotoUser} = props
     
 
-let clients = officeData.clients;
+let clients = data.clients;
 
     
     function addClient(){

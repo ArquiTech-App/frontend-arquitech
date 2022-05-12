@@ -1,17 +1,19 @@
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import AsideCustomers from './AsideCustomers'
 import { getUser } from '../services/clients/auth'
 
 export default function LayoutCustomers({children}) {
   
+  const [projects, setProjects] = useState([])
 
   useEffect( () => {
     const getDataUser = async (token) => {
-      console.log(token)
+      
       const response = await getUser(token)
-      console.log(response )
+      
       const dataJson = await response.json()
-      conselo.log(dataJson)
+      console.log(dataJson)
+      setProjects(dataJson.data.clients.projects) 
     }
     console.log('se monta el componente')
     getDataUser(localStorage.getItem('token')) 
@@ -21,7 +23,7 @@ export default function LayoutCustomers({children}) {
 
   return (
     <section className="section-layout">
-        <AsideCustomers className="aside-layout"/>
+        <AsideCustomers className="aside-layout" projects={projects}/>
         <div className="container-layout">
         {children}
         </div>

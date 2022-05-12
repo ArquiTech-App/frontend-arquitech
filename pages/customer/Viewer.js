@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Layout from '../../components/Layout'
+import LayoutCustomers from '../../components/LayoutCustomers'
 import dynamic from 'next/dynamic'
 
 
@@ -24,6 +24,7 @@ export default function Viewer(){
   
   const [view, setView] = useState(null)
 
+  //preparando la peticion replica
 
  
     
@@ -83,7 +84,7 @@ export default function Viewer(){
 
 
   return (
-    <Layout>
+    <LayoutCustomers>
       {(!accessTokenForge)?null: 
       <DynamicComponent
       version="6.0"
@@ -100,7 +101,7 @@ export default function Viewer(){
     />
       }
       
-    </Layout>
+    </LayoutCustomers>
   )
 }
 

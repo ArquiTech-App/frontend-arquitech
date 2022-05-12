@@ -25,7 +25,6 @@ function HomeCenter() {
    let token = localStorage.getItem('token')
    setToken(token)
    
-   
    async function getId(){
      
 
@@ -34,6 +33,7 @@ function HomeCenter() {
       let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/offices/getID/${token}`)
       let json = await res.json();
       let idUser = json.data.id;
+      
       getUser(idUser, token)
 
       
@@ -51,6 +51,7 @@ function HomeCenter() {
         let json = await res.json()
         let user = json.data.offices;
         setData({...user})
+        
         localStorage.setItem('data', JSON.stringify(user))
         createFolder(user);
       } catch (error) {
@@ -58,6 +59,7 @@ function HomeCenter() {
       }
     }
     async function createFolder(user){
+      
       try {
         let options = {
           method: 'POST',
@@ -68,11 +70,11 @@ function HomeCenter() {
         }
         let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/createFolder`,options);
         let json = await res.json();
-        
-        if (!res.ok) throw {error: error} 
+        console.log(json);
+        if (!res.ok) throw {error: json.error} 
 
       } catch (error) {
-        
+        console.log(error.error);
       }
     }
     getId()

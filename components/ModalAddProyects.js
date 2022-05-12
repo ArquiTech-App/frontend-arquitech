@@ -29,7 +29,7 @@ export default function ModalAddProyects(props) {
             
             
             
-            Router.reload(location.pathname)
+            Router.back(location)
             props.onHide();
         } catch (error) {
             console.log(error.error);

@@ -27,7 +27,7 @@ export default function ModalError(props) {
               
               if(props.userState === 'office'){
                 
-                Router.push('offices/home')
+                Router.push('offices/Home')
               } else {
                 Router.push('customer/home')
 

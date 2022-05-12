@@ -47,7 +47,7 @@ export default function AsideOffice() {
       </div>
       <div className="menu-aside">
         <div className="buttons-aside">
-          <Link href="home">
+          <Link href="Home">
             <button className="btn-aside">
               <Image src={home} alt="logo-home" />
               Home

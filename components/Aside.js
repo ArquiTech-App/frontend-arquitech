@@ -27,7 +27,7 @@ export default function Aside(props) {
         </div>
         <div className="menu-aside">
             <div className="buttons-aside">
-                <Link href='home'>
+                <Link href='Home'>
 
                 <button className="btn-aside">
                     <Image

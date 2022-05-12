@@ -4,7 +4,8 @@ import Button from 'react-bootstrap/Button'
 import Router from 'next/router'
 
 export default function ModalAddPhoto(props) {
-    let token = props.tokenOffice;
+  console.log(props);
+    let token = props.token;
     let id = props.data._id;
     let userPhoto = props.photoUser;
     let urls = ''
@@ -24,6 +25,7 @@ export default function ModalAddPhoto(props) {
        
         formData.append('file', e.target.file.files[0] )
         console.log(formData);
+        console.log(props.data.bucket);
         let options = {
             method: 'POST',
             body: formData
@@ -31,8 +33,8 @@ export default function ModalAddPhoto(props) {
        try {
            let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/upload/${props.data.bucket}`, options)
            let json = await res.json()
-            
-           if(!res.ok) throw {error: error}
+            console.log(json);
+           if(!res.ok) throw {error: json}
            let url = json.url;
             let u = url.split('?')
             url = u[0]
@@ -40,7 +42,7 @@ export default function ModalAddPhoto(props) {
             console.log(url);
             
             addAvatar(url);
-            // Router.reload(location.pathname)
+            Router.reload(location.pathname)
             props.onHide();
 
        } catch (error) {
@@ -49,7 +51,7 @@ export default function ModalAddPhoto(props) {
     }
     
     async function addAvatar(url){
-        console.log(url);
+        console.log(token);
         let options = {
             method: 'PATCH',
             headers: {
@@ -63,7 +65,7 @@ export default function ModalAddPhoto(props) {
             let res = await fetch(urls, options)
             let json = await res.json();
             console.log(res);
-            if(!res.ok) throw {error: json.message}
+            if(!res.ok) throw {error: json}
             console.log(json);
         } catch (error) {
             console.log(error);

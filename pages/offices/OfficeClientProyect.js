@@ -54,7 +54,7 @@ export default function OfficeClientProyect() {
 
       </div>
       </LayoutClientOffice>
-      {(!proyect)?'hola'
+      {(!proyect)?<h2>Recarga la pagina...</h2>
       : 
       <div>
         {proyect.map(el=>{
@@ -64,15 +64,15 @@ export default function OfficeClientProyect() {
             <div className="card">
               <h3>{el.name}</h3>
               <h5>{el.organization}</h5>
-              <Button>Agregar Archivo </Button>
+              <Button>Agregar Archivo</Button>
             </div>
             </>
           )
         })}
+      <Button  onClick={clickModal}>Agregar Proyecto</Button>
       </div>
       
     }
-      <Button  onClick={clickModal}>Agregar Proyecto</Button>
     </LayoutOffice>
   )
 }

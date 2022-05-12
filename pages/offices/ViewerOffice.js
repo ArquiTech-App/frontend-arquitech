@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import LayoutCustomers from '../../components/LayoutCustomers'
+import LayoutOffice from '../../components/LayoutOffice'
 import dynamic from 'next/dynamic'
+import {useRouter} from 'next/router'
 
 
 const DynamicComponent = dynamic(
@@ -10,8 +11,29 @@ const DynamicComponent = dynamic(
 
 export default function Viewer(){
   const [accessTokenForge, setAccessTokenForge] = useState();
+  const [data, setData] = useState();
+  const [doc, setDoc] = useState();
+  const router = useRouter();
+  const pass = router.query;
+  const id = pass.id
 
   useEffect(() => {
+    getClient(id);
+  
+    async function getClient(id) {
+      try {
+        let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/clients/${id}`)
+        let json = await res.json()
+        if(!res.ok) throw {error: json}
+        setData(json.data.clients)
+        setProyect(json.data.clients.projects)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+
+
     const getTokenAutodesk = async () => {
       
       let res = await fetch('https://eb-arquitech.lunacrisdev.xyz/autodesk/forge/oauth/public'),
@@ -20,6 +42,7 @@ export default function Viewer(){
       
     }
     getTokenAutodesk(setAccessTokenForge)
+    
   },[])
   
   const [view, setView] = useState(null)
@@ -69,8 +92,10 @@ export default function Viewer(){
       
     }
     
-    
-  
+   
+  function onChange(e){
+
+  }
 
   function handleTokenRequested(onAccessToken){
     console.log('Token request by the viewer.');
@@ -80,11 +105,29 @@ export default function Viewer(){
       onAccessToken(token.access_token, token.expires_in)
     }
   }
-
-
-
+  if(data){
+    setDoc(data.projects[0].documents)
+}
+  console.log(doc);
   return (
-    <LayoutCustomers>
+    <LayoutOffice>
+        <form onSubmit={onChange} >
+            <select style={{width: "200px"}}>
+                {/* {(!data)?<option>hola</option>: doc.map(el=>{
+                    console.log(el);
+                    console.log(el);
+                    return(
+                        
+                        
+                        <option value={el.urn}>{el}</option>
+                                
+                            
+                        
+                    )
+                })} */}
+            </select>
+        </form>
+        <>
       {(!accessTokenForge)?null: 
       <DynamicComponent
       version="6.0"
@@ -100,10 +143,7 @@ export default function Viewer(){
         onModelError={handleModelError.bind(this)}
     />
       }
-      
-    </LayoutCustomers>
+      </>
+    </LayoutOffice>
   )
 }
-
-
-

@@ -103,7 +103,7 @@ export default function AsideOffice() {
                           <Link href="/clientDashboard">
                             <button className="btn-aside">
                               <Image src={dashboard} alt="logo-dashboard" />
-                              Dashboard
+                              Documents
                             </button>
                           </Link>
                           <Link href={{
@@ -117,7 +117,12 @@ export default function AsideOffice() {
                               Proyectos
                             </button>
                           </Link>
-                          <Link href="/clientDashboard">
+                          <Link href={{
+                            pathname: "/offices/ViewerOffice",
+                            query:{
+                              id: el._id
+                            }
+                          }}>
                             <button className="btn-aside">
                               <Image src={view} alt="logo-view" />
                               Viewer

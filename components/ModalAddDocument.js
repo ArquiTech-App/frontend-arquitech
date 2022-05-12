@@ -13,13 +13,14 @@ export default function ModalAddDocument(props) {
         let name = e.target.file.files[0].name;
         let extencion = name.substr(-3)
         
-        if (extencion === 'dwg' || extencion === 'rvt') {
-          return console.log('archivo 3d');
-        }
         let options = {
-            method: 'POST',
-            body: formData
+          method: 'POST',
+          body: formData
         }
+        if (extencion === 'dwg' || extencion === 'rvt') {
+          return uploadModel(options, bucket)
+        }
+        
         try {
             let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/upload/${bucket}`, options)
            let json = await res.json()
@@ -32,26 +33,66 @@ export default function ModalAddDocument(props) {
             console.log(url);
             
             addFile(url, name);
-            // Router.reload(location.pathname)
+            Router.reload(location.pathname)
             props.onHide();
         } catch (error) {
             console.log(error.error);
         }
         
     }
-    async function addFile(url, name){
+    async function uploadModel(options,bucket) {
+        
+        try {
+          let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/autodesk/${bucket}`,options)
+          let json = await res.json();
+
+          if(!res.ok) throw {error: json}
+          console.log(json);
+          addFileUrn(json.urn, json.name)
+          Router.reload(location.pathname)
+          props.onHide();
+        } catch (error) {
+          console.log(error);
+        }
+    }
+    async function addFileUrn(urn, name){
+      let doc = {documents: 
+        {
+          "name": name,
+          "urn": urn
+        }
+       }
       try {
         let options = {
           method: 'PATCH',
           headers: {
             "Content-Type": "application/json"
           },
-          body: {
-            documents:{
-              "name": name,
-              "url": url
-            }
-          }
+          body: JSON.stringify(doc)
+        }
+        let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/proyects/${id}`, options);
+        let json = await res.json();
+        console.log(json);
+        if(!res.ok) throw {error: json.error}
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    async function addFile(url, name){
+      let doc = {documents: 
+        {
+          "name": name,
+          "url": url
+        }
+       }
+      try {
+        let options = {
+          method: 'PATCH',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(doc)
         }
         let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/proyects/${id}`, options);
         let json = await res.json();

@@ -12,10 +12,10 @@ export default function LayoutCustomers({children}) {
       const response = await getUser(token)
       
       const dataJson = await response.json()
-      console.log(dataJson)
+     // console.log(dataJson)
       setProjects(dataJson.data.clients.projects) 
     }
-    console.log('se monta el componente')
+    //console.log('se monta el componente')
     getDataUser(localStorage.getItem('token')) 
     .catch(console.error)
 

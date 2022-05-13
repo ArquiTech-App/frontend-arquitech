@@ -53,6 +53,8 @@ export default function Viewer(){
   },[])
   
   const [view, setView] = useState(null)
+  const [viewSel, setViewSell] = useState(null)
+  const [doc, setDoc] = useState(null)
 
   //preparando la peticion replica
 
@@ -99,13 +101,15 @@ export default function Viewer(){
       
     }
     
-   
+    let docs = [];
+    let pro = [];
+  
   function onChange(e){
       
         setUrn(e.target.value);
 
   }
-  
+ 
 
   function handleTokenRequested(onAccessToken){
     console.log('Token request by the viewer.');
@@ -115,23 +119,48 @@ export default function Viewer(){
       onAccessToken(token.access_token, token.expires_in)
     }
   }
-  let doc = []
+  
   if (data) {
-
-       doc = data.projects[0].documents
+      pro = data.projects
+      
   }
-
-  console.log(doc);
+  function onChanges(e) {
+    let ind = e.target.value
+    
+    setDoc(pro[ind].documents)
+    setViewSell(true)
+}
 
   
   return (
     <LayoutOffice>
         <form className='form-viewer' >
+        <label>
+            Seleccione el Proyecto:
+            <select onChange={onChanges}>
+              <option value=""></option>
+                {(!data)?<option></option>: pro.map((el, index)=>{
+                  console.log(el);
+                  
+                  return(
+                    
+                    
+                    <option  value={index}>{el.name}</option>
+                    
+                    
+                    
+                    
+                    )
+                  })}
+            </select>
+                  </label>
+                  { (!viewSel)?null :
+
           <label>
             Seleccione el Archivo:
             <select onChange={onChange}>
               <option value=""></option>
-                {(!data)?<option></option>: doc.map(el=>{
+                {!doc?null: doc.map(el=>{
                   console.log(el);
                   
                   return(
@@ -147,6 +176,7 @@ export default function Viewer(){
                   })}
             </select>
                   </label>
+                  }
             
         </form>
         <>

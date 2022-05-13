@@ -18,7 +18,7 @@ export default function ModalAddDocument(props) {
           method: 'POST',
           body: formData
         }
-        if (extencion === 'dwg' || extencion === 'rvt' || extencion === 'dxf' || extencion === 'rfa' || extencion === '3ds') {
+        if (extencion === 'dwg' || extencion === 'rvt' || extencion === 'dxf' || extencion === 'rfa' || extencion === '3ds' || extencion === 'dwf') {
           return uploadModel(options, bucket)
         }
         

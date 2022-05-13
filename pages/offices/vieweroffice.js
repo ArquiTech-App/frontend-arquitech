@@ -139,13 +139,13 @@ export default function Viewer(){
             Seleccione el Proyecto:
             <select onChange={onChanges}>
               <option value=""></option>
-                {(!data)?<option></option>: pro.map((el, index)=>{
-                  console.log(el);
+                {(!data)?<option></option>: pro.map((el, i)=>{
+                  console.log(i);
                   
                   return(
                     
                     
-                    <option key={index}  value={index}>{el.name}</option>
+                    <option key={id}  value={i}>{el.name}</option>
                     
                     
                     

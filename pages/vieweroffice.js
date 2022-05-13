@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import LayoutOffice from '../../components/LayoutOffice'
+import LayoutOffice from '../components/LayoutOffice'
 import dynamic from 'next/dynamic'
 import {useRouter} from 'next/router'
 

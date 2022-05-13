@@ -101,7 +101,7 @@ export default function AsideOffice() {
                         <ListGroup>
                         <ListGroup.Item>
                           <Link href={{
-                            pathname: "offices/documents",
+                            pathname: "documents",
                             query:{
                               id: el._id
                             }
@@ -122,7 +122,7 @@ export default function AsideOffice() {
                             </button>
                           </Link>
                           <Link href={{
-                            pathname: "offices/vieweroffice",
+                            pathname: "vieweroffice",
                             query:{
                               id: el._id
                             }

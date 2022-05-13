@@ -39,20 +39,14 @@ export default function Home() {
     getDataProject(idProject).catch(console.error);
   }, [idProject]);
   const docs = [
-<<<<<<< HEAD
     {uri: '/CARP-1.11 Escritorio Sala TV.pdf'},
     {uri: '/dwg.png'}, 
-=======
-    { uri: "/dwg.png" },
-    { uri: "/CARP-1.11 Escritorio Sala TV.pdf" },
->>>>>>> ba3ca8ff0c31b3ee1d461b9c92fc9bdfe4e27831
   ];
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }
   console.log('documents:',documents);
   return (
-<<<<<<< HEAD
       <LayoutCustomers>
         <h1>Project Documents</h1>
         {
@@ -62,12 +56,6 @@ export default function Home() {
       </LayoutCustomers>
   )
 }
-=======
-    <LayoutCustomers>
-      <h1>Project Documents</h1>
-      {
-          documents.length>0 && 
->>>>>>> ba3ca8ff0c31b3ee1d461b9c92fc9bdfe4e27831
 
           <DocViewer config={{header:{disableHeader: true}}}  pluginRenderers={DocViewerRenderers} documents={docs} />
 

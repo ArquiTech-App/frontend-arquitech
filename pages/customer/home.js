@@ -37,8 +37,7 @@ export default function Home() {
       <LayoutCustomers>
         <h1>Project Documents</h1>
         {
-          documents.length>0 && 
-          <DocViewer config={{header:{disableHeader: true}}}  pluginRenderers={DocViewerRenderers} documents={docs} />
+          <DocViewer pluginRenderers={DocViewerRenderers} documents={docs} />
         }
         
       </LayoutCustomers>

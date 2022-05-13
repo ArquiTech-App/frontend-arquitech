@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react'
-import LayoutOffice from '../components/LayoutOffice'
+import LayoutOffice from '../../components/LayoutOffice'
 import {useRouter} from 'next/router'
-import ModalAddProyects from '../components/ModalAddProyects'
-import ModalAddDocument from '../components/ModalAddDocument'
+import ModalAddProyects from '../../components/ModalAddProyects'
+import ModalAddDocument from '../../components/ModalAddDocument'
 
 import Image from 'next/image'
-import LayoutClientOffice from '../components/LayoutClientOffice'
-import pdf from '../public/pdf.png'
-import jpg from '../public/jpg.png'
-import rvt from '../public/revit.png'
-import dwg from '../public/dwg.png'
+import LayoutClientOffice from '../../components/LayoutClientOffice'
+import pdf from '../../public/pdf.png'
+import jpg from '../../public/jpg.png'
+import rvt from '../../public/revit.png'
+import dwg from '../../public/dwg.png'
 
 
 export default function OfficeClientProyect() {

@@ -9,7 +9,6 @@ body{
 
 
 
-
 // pages
 @import "../styles/pages/index";
 @import "./pages/contacto";
@@ -18,7 +17,8 @@ body{
 @import "./components/home";
 @import "./pages/addClient";
 @import "./pages/restartPassword";
-
+@import "./pages/officeclientproyect.scss";
+@import "./pages/vieweroffice";
 
 //components
 @import "./components/_loginInput";

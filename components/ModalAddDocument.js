@@ -2,6 +2,7 @@ import React from 'react'
 import {Modal, Button} from 'react-bootstrap'
 import Router from 'next/router'
 
+
 export default function ModalAddDocument(props) {
 
     const {bucket, id, onHide} = props
@@ -17,7 +18,7 @@ export default function ModalAddDocument(props) {
           method: 'POST',
           body: formData
         }
-        if (extencion === 'dwg' || extencion === 'rvt') {
+        if (extencion === 'dwg' || extencion === 'rvt' || extencion === 'dxf' || extencion === 'rfa' || extencion === '3ds' || extencion === 'dwf') {
           return uploadModel(options, bucket)
         }
         
@@ -25,18 +26,19 @@ export default function ModalAddDocument(props) {
             let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/upload/${bucket}`, options)
            let json = await res.json()
             console.log(json);
-           if(!res.ok) throw {error: json.message}
+           if(!res.ok) throw {error: json}
            let url = json.url;
+           console.log(url);
             let u = url.split('?')
             url = u[0]
             
             console.log(url);
             
             addFile(url, name);
-            Router.reload(location.pathname)
+            Router.push('/offices/home')
             props.onHide();
         } catch (error) {
-            console.log(error.error);
+            console.log(error);
         }
         
     }
@@ -49,7 +51,7 @@ export default function ModalAddDocument(props) {
           if(!res.ok) throw {error: json}
           console.log(json);
           addFileUrn(json.urn, json.name)
-          Router.reload(location.pathname)
+          Router.push('/offices/home')
           props.onHide();
         } catch (error) {
           console.log(error);

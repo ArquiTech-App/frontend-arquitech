@@ -1,0 +1,13 @@
+.form-viewer{
+    margin: 20px;
+    label{
+        display: flex;
+        flex-direction: column;
+        font-weight: bold;
+        gap: 5px;
+        select{
+            border-radius: 15px;
+            width: 80%;
+        }
+    }
+}

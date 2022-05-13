@@ -126,7 +126,7 @@ export default function Viewer(){
   
   return (
     <LayoutOffice>
-        <form onSubmit={onsubmit} >
+        <form  >
             <select onChange={onChange} style={{width: "200px"}}>
                 {(!data)?<option>hola</option>: doc.map(el=>{
                     console.log(el);

@@ -36,7 +36,7 @@ export default function CardClientInput() {
             
             if(!res.ok) throw {error: json}
 
-            Router.push('offices/Home')
+            Router.push('offices/home')
         } catch (error) {
             console.log(error);
         }

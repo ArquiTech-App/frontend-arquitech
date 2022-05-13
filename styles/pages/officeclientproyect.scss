@@ -1,0 +1,39 @@
+.container-btn-proyect{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    .btn-add-proyect{
+        text-align: center;
+            width: 40%;
+            height: 34px;
+            font-weight: bold;
+            border-radius: 7px;
+            border: none;
+            background-color: #001F3E;
+            color: white;
+            margin-top: 25px;
+            &:hover{
+                background-color: #123e5c;
+            }
+    }
+}
+
+.container-btn-addfile{
+    display: flex;
+    justify-content: end;
+    margin: 15px;
+    .btn-addfile{
+        text-align: center;
+            width: 30%;
+            height: 34px;
+            font-weight: bold;
+            border-radius: 7px;
+            border: none;
+            background-color: #001F3E;
+            color: white;
+            margin-top: 25px;
+            &:hover{
+                background-color: #123e5c;
+            }
+    }
+}

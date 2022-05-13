@@ -47,7 +47,7 @@ export default function AsideOffice() {
       </div>
       <div className="menu-aside">
         <div className="buttons-aside">
-          <Link href="Home">
+          <Link href="home">
             <button className="btn-aside">
               <Image src={home} alt="logo-home" />
               Home
@@ -100,15 +100,19 @@ export default function AsideOffice() {
                       <Accordion.Body>
                         <ListGroup>
                         <ListGroup.Item>
-                          <Link href="/clientDashboard">
+                          <Link href={{
+                            pathname: "documents",
+                            query:{
+                              id: el._id
+                            }
+                          }}>
                             <button className="btn-aside">
                               <Image src={dashboard} alt="logo-dashboard" />
                               Documents
                             </button>
                           </Link>
                           <Link href={{
-                            
-                            pathname: "OfficeClientProyect",
+                            pathname: "officeclientproyect",
                             query: { id: el._id,
                             bucket: bucket}
                             }}>
@@ -118,7 +122,7 @@ export default function AsideOffice() {
                             </button>
                           </Link>
                           <Link href={{
-                            pathname: "/offices/ViewerOffice",
+                            pathname: "vieweroffice",
                             query:{
                               id: el._id
                             }

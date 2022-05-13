@@ -1,9 +1,18 @@
 import {useEffect, useState} from 'react'
 import LayoutCustomers from '../../components/LayoutCustomers'
 import Link from 'next/link'
-import DocViewer, {DocViewerRenderers} from "react-doc-viewer"
 import { useRouter } from 'next/router'
 import {getProject} from '../../services/projects'
+import dynamic from 'next/dynamic'
+
+const DocViewer = dynamic(
+  () => import('react-doc-viewer'),
+  {ssr: false}
+  )
+  const {DocViewerRenderers} = dynamic(
+    () => import('react-doc-viewer'),
+    {ssr: false}
+    )
 
 
 export default function Home() {

@@ -128,7 +128,8 @@ export default function Viewer(){
     <LayoutOffice>
         <form  >
             <select onChange={onChange} style={{width: "200px"}}>
-                {(!data)?<option>hola</option>: doc.map(el=>{
+              <option value=""></option>
+                {(!data)?<option></option>: doc.map(el=>{
                     console.log(el);
                     
                     return(

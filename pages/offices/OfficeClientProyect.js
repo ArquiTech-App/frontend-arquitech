@@ -73,7 +73,7 @@ export default function OfficeClientProyect() {
             <div className="card p-4">
               <h3>{el.name}</h3>
               <h5>{el.organization}</h5>
-              {el.documents.length > 0 ? el.documents.map(el => {return <a href={el.url}>{el.name}</a>}): null}
+              {el.documents.length > 0 ? el.documents.map(el => {return <a key={el.name} href={el.url}>{el.name}</a>}): null}
               <Button onClick={()=>{clickModalFile(el)}}>Agregar Archivo</Button>
             </div>
             

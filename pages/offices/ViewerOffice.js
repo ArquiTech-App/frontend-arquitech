@@ -126,24 +126,27 @@ export default function Viewer(){
   
   return (
     <LayoutOffice>
-        <form  >
-            <select onChange={onChange} style={{width: "200px"}}>
+        <form className='form-viewer' >
+          <label>
+            Seleccione el Archivo:
+            <select onChange={onChange}>
               <option value=""></option>
                 {(!data)?<option></option>: doc.map(el=>{
-                    console.log(el);
+                  console.log(el);
+                  
+                  return(
                     
-                    return(
-                        
-                        (!el.urn)
-                            ? null
-                            :<option  value={el.urn}>{el.name}</option>
-                        
-                                
-                            
-                        
+                    (!el.urn)
+                    ? null
+                    :<option  value={el.urn}>{el.name}</option>
+                    
+                    
+                    
+                    
                     )
-                })}
+                  })}
             </select>
+                  </label>
             
         </form>
         <>

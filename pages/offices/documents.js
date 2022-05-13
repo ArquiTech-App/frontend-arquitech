@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import LayoutOffice from '../../components/LayoutOffice'
 import {useRouter} from 'next/router'
+import dynamic from 'next/dynamic';
 
+const DocViewer = dynamic(() => import("react-doc-viewer"), { ssr: false });
+const { DocViewerRenderers } = dynamic(() => import("react-doc-viewer"), {
+  ssr: false,
+});
 
 
 
 
 export default function Documents(){
-    const [numPages, setNumPages] = useState(null);
-    const [pageNumber, setPageNumber] = useState(1);
+  
   const [data, setData] = useState();
   const [url, setUrl] = useState();
 
@@ -43,24 +47,23 @@ export default function Documents(){
   
 
  
+ 
 
     
    
   function onChange(e){
       
-        setUrl(e.target.value);
+        setUrl([{uri: e.target.value}]);
 
   }
-  
-
-  
+  console.log(url);
   let doc = []
   if (data) {
 
        doc = data.projects[0].documents
   }
+  
 
- 
 
   
   return (
@@ -68,7 +71,7 @@ export default function Documents(){
         <form  >
             <select onChange={onChange} style={{width: "200px"}}>
               <option value=""></option>
-                {(!data)?<option></option>: doc.map(el=>{
+                {(!doc)?<option></option>: doc.map(el=>{
                     
                     console.log(el.name.substr(-3) === 'pdf')
                     
@@ -85,7 +88,10 @@ export default function Documents(){
             
         </form>
         <>
-        
+        {
+          !url ? null : 
+          <DocViewer config={{header:{disableHeader: true}}} pluginRenderers={DocViewerRenderers} documents={url} />
+        }
         
       </>
     </LayoutOffice>

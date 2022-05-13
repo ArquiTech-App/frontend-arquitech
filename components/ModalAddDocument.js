@@ -2,6 +2,7 @@ import React from 'react'
 import {Modal, Button} from 'react-bootstrap'
 import Router from 'next/router'
 
+
 export default function ModalAddDocument(props) {
 
     const {bucket, id, onHide} = props
@@ -22,7 +23,7 @@ export default function ModalAddDocument(props) {
         }
         
         try {
-            let res = await fetch(`http://localhost:8080/upload/${bucket}`, options)
+            let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/upload/${bucket}`, options)
            let json = await res.json()
             console.log(json);
            if(!res.ok) throw {error: json}
@@ -34,7 +35,7 @@ export default function ModalAddDocument(props) {
             console.log(url);
             
             addFile(url, name);
-            // Router.reload(location.pathname)
+            Router.push('/offices/home')
             props.onHide();
         } catch (error) {
             console.log(error);
@@ -44,13 +45,13 @@ export default function ModalAddDocument(props) {
     async function uploadModel(options,bucket) {
         
         try {
-          let res = await fetch(`http://localhost:8080/autodesk/${bucket}`,options)
+          let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/autodesk/${bucket}`,options)
           let json = await res.json();
 
           if(!res.ok) throw {error: json}
           console.log(json);
           addFileUrn(json.urn, json.name)
-          // Router.reload(location.pathname)
+          Router.push('/offices/home')
           props.onHide();
         } catch (error) {
           console.log(error);
@@ -71,7 +72,7 @@ export default function ModalAddDocument(props) {
           },
           body: JSON.stringify(doc)
         }
-        let res = await fetch(`http://localhost:8080/proyects/${id}`, options);
+        let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/proyects/${id}`, options);
         let json = await res.json();
         console.log(json);
         if(!res.ok) throw {error: json.error}
@@ -95,7 +96,7 @@ export default function ModalAddDocument(props) {
           },
           body: JSON.stringify(doc)
         }
-        let res = await fetch(`http://localhost:8080/proyects/${id}`, options);
+        let res = await fetch(`https://eb-arquitech.lunacrisdev.xyz/proyects/${id}`, options);
         let json = await res.json();
         console.log(json);
         if(!res.ok) throw {error: json.error}

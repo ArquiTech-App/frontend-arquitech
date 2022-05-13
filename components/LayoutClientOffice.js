@@ -5,7 +5,7 @@ export default function LayoutClientOffice({children}) {
 
     const data = children.props.data;
 
-    console.log(data);
+    
 
     
 

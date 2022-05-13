@@ -17,8 +17,7 @@ export default function Home() {
   const idProject = router.query.project;
   console.log(idProject);
   const [documents, setDocuments] = useState([]);
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+
 
   useEffect(() => {
     const getDataProject = async (idProject) => {

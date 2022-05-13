@@ -8,21 +8,21 @@ import { getUser } from '../services/clients/auth'
 export default function ModalError(props) {
   const [projects, setProjects] = useState([])
 
-  useEffect( () => {
-    const getDataUser = async (token) => {
+  // useEffect( () => {
+  //   const getDataUser = async (token) => {
       
-      const response = await getUser(token)
+  //     const response = await getUser(token)
       
-      const dataJson = await response.json()
-      //console.log(dataJson)
-      setProjects(dataJson.data.clients.projects) 
-    }
-    //console.log('se monta el componente')
-    getDataUser(localStorage.getItem('token')) 
-    .catch(console.error)
+  //     const dataJson = await response.json()
+  //     //console.log(dataJson)
+  //     setProjects(dataJson.data.clients.projects) 
+  //   }
+  //   //console.log('se monta el componente')
+  //   getDataUser(localStorage.getItem('token')) 
+  //   .catch(console.error)
 
-  }, [])
-    function clickModal() {
+  // }, [])
+   async function clickModal() {
         if (!props.success) {
             
             props.setErrorC('')
@@ -49,10 +49,13 @@ export default function ModalError(props) {
                 Router.push('offices/home')
 
               } else {
+                const response = await getUser(localStorage.getItem('token'))
+      
+      const dataJson = await response.json()
                 //Router.push('customer/home')
                 Router.push({
                   pathname: '/customer/home',
-                  query: { project: projects[0]._id },
+                  query: { project: dataJson.data.clients.projects[0]._id },
                 })
               }
             }

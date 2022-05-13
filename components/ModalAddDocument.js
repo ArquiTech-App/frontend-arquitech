@@ -37,7 +37,7 @@ export default function ModalAddDocument(props) {
             // Router.reload(location.pathname)
             props.onHide();
         } catch (error) {
-            console.log(error.error);
+            console.log(error);
         }
         
     }

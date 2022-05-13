@@ -30,8 +30,8 @@ export default function Home() {
 
   }, [idProject])
   const docs = [
-    {uri: '/dwg.png'},
-    {uri: '/CARP-1.11 Escritorio Sala TV.pdf'}, 
+    {uri: '/CARP-1.11 Escritorio Sala TV.pdf'},
+    {uri: '/dwg.png'}, 
   ];
   return (
       <LayoutCustomers>

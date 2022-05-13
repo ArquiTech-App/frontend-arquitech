@@ -47,7 +47,7 @@ export default function AsideOffice() {
       </div>
       <div className="menu-aside">
         <div className="buttons-aside">
-          <Link href="Home">
+          <Link href="home">
             <button className="btn-aside">
               <Image src={home} alt="logo-home" />
               Home
@@ -108,7 +108,7 @@ export default function AsideOffice() {
                           </Link>
                           <Link href={{
                             
-                            pathname: "OfficeClientProyect",
+                            pathname: "officeClientProyect",
                             query: { id: el._id,
                             bucket: bucket}
                             }}>
@@ -118,7 +118,7 @@ export default function AsideOffice() {
                             </button>
                           </Link>
                           <Link href={{
-                            pathname: "/offices/ViewerOffice",
+                            pathname: "/offices/viewerOffice",
                             query:{
                               id: el._id
                             }

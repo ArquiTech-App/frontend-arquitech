@@ -27,13 +27,14 @@ export default function ModalAddDocument(props) {
             console.log(json);
            if(!res.ok) throw {error: json.message}
            let url = json.url;
+           console.log(url);
             let u = url.split('?')
             url = u[0]
             
             console.log(url);
             
             addFile(url, name);
-            Router.reload(location.pathname)
+            // Router.reload(location.pathname)
             props.onHide();
         } catch (error) {
             console.log(error.error);

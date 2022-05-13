@@ -46,7 +46,7 @@ export default function ModalError(props) {
                 
 
 
-                Router.push('offices/Home')
+                Router.push('offices/home')
 
               } else {
                 //Router.push('customer/home')

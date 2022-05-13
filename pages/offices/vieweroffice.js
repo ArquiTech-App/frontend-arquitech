@@ -145,7 +145,7 @@ export default function Viewer(){
                   return(
                     
                     
-                    <option  value={index}>{el.name}</option>
+                    <option key={index}  value={index}>{el.name}</option>
                     
                     
                     
@@ -167,7 +167,7 @@ export default function Viewer(){
                     
                     (!el.urn)
                     ? null
-                    :<option  value={el.urn}>{el.name}</option>
+                    :<option key={index}  value={el.urn}>{el.name}</option>
                     
                     
                     

@@ -125,9 +125,9 @@ export default function Viewer(){
       
   }
   function onChanges(e) {
-    let ind = e.target.value
+    let i = e.target.value
     
-    setDoc(pro[ind].documents)
+    setDoc(pro[i].documents)
     setViewSell(true)
 }
 

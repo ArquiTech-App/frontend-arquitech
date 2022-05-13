@@ -51,7 +51,9 @@ export default function Home() {
       <h1>Project Documents</h1>
       {
           documents.length>0 && 
-          <DocViewer config={{header:{disableHeader: true}}} pluginRenderers={DocViewerRenderers} documents={documents} />
+
+          <DocViewer config={{header:{disableHeader: true}}}  pluginRenderers={DocViewerRenderers} documents={docs} />
+
         }
       {/* {documents.map((doc) => {
         if (!doc) return null;

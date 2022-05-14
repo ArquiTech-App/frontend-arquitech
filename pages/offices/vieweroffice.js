@@ -103,6 +103,7 @@ export default function Viewer(){
     
     let docs = [];
     let pro = [];
+    let i = 0;
   
   function onChange(e){
       
@@ -139,8 +140,8 @@ export default function Viewer(){
             Seleccione el Proyecto:
             <select onChange={onChanges}>
               <option value=""></option>
-                {(!data)?<option></option>: pro.map((el, i)=>{
-                  console.log(i);
+                {(!data)?<option></option>: pro.map((el)=>{
+                  
                   
                   return(
                     
@@ -151,6 +152,7 @@ export default function Viewer(){
                     
                     
                     )
+                    i++
                   })}
             </select>
                   </label>

@@ -146,7 +146,7 @@ export default function Viewer(){
                   return(
                     
                     
-                    <option key={id}  value={i}>{el.name}</option>
+                    <option key={i}  value={i}>{el.name}</option>
                     
                     
                     

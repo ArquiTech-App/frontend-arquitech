@@ -169,7 +169,7 @@ export default function Viewer(){
                     
                     (!el.urn)
                     ? null
-                    :<option key={index}  value={el.urn}>{el.name}</option>
+                    :<option key={el._id}  value={el.urn}>{el.name}</option>
                     
                     
                     
